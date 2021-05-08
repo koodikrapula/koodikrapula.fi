@@ -11,21 +11,24 @@
       type="module"
     ></script>
   </head>
-  <body class="flex justify-center">
-    <div class="flex-grow max-w-2xl mt-10 px-4">
-      <header>
-        <h1 class="font-bold mb-10 text(center gray-600 xl)">
-          Koodikrapula.fi
-        </h1>
+
+  <body class="flex justify-center bg-gray-50">
+    <div class="flex-grow max-w-2xl px-4">
+      <header class="flex justify-center">
+        <a href="#" class="hover:bg-gray-100 hover:text-red-400 my-6">
+          <h1 class="font-bold font-mono text(center gray-600 2xl) p-3 rounded">
+            Koodikrapula.fi
+          </h1>
+        </a>
       </header>
 
       <main>
         <h2 class="sr-only">Viimeisin jakso</h2>
 
-        <article class="bg-gray-50 mb-12 -mx-4 p-6 md:rounded">
+        <article class="mb-12 -mx-4 p-6 md:rounded bg-white shadow-md">
           <h3 class="font-bold mb-2 text-xl">
-            <a class="underline hover:bg-yellow-100" href="#">
-              #3 &ndash; Windows PowerTools &amp; Firefox Add-ons
+            <a class="underline hover:text-red-400" href="#">
+              #5 &ndash; Windows PowerTools &amp; Firefox Add-ons
             </a>
           </h3>
           <footer>
@@ -39,43 +42,102 @@
             Firefox-lisäosista.
           </p>
           <p class="mb-2">
-            <a class="underline hover:bg-yellow-100" href="#">Jaksomuikkarit</a>
+            <a class="italic underline hover:text-red-400" href="#"
+              >Jaksomuikkarit</a
+            >
           </p>
           <p><em>Player</em></p>
         </article>
 
         <h2 class="font-bold mb-4 text-xl">Menneet jaksot</h2>
 
-        <article class="-m-2 p-2 rounded hover:bg-yellow-100">
-          <a href="#">
-            <h3 class="font-bold mb-2 text-lg underline">#2 &ndash; ?</h3>
-            <footer>
-              <p class="mb-2">
-                <span class="sr-only">Julkaistu</span>
-                <time datetime="2021-03-27">27.3.2021</time>
-              </p>
-            </footer>
-            <p>Jaksokuvaus...</p>
-          </a>
-        </article>
+        <div class="flex flex-wrap">
+          <article class="w-full md:w-2/4 mb-3">
+            <div
+              class="mr-3 rounded bg-white shadow-md hover:shadow-lg transition group"
+            >
+              <a href="#" class="block p-3">
+                <h3
+                  class="font-bold mb-2 text-lg underline group-hover:text-red-400"
+                >
+                  #4 &ndash; ???
+                </h3>
+                <footer>
+                  <p class="mb-2">
+                    <span class="sr-only">Julkaistu</span>
+                    <time datetime="2021-03-27">27.3.2021</time>
+                  </p>
+                </footer>
+                <p>Jaksokuvaus...</p>
+              </a>
+            </div>
+          </article>
 
-        <hr aria-hidden="true" class="my-6" />
+          <article class="w-full md:w-2/4 mb-3">
+            <div
+              class="mr-3 rounded bg-white shadow-md hover:shadow-lg transition group"
+            >
+              <a href="#" class="block p-3">
+                <h3
+                  class="font-bold mb-2 text-lg underline group-hover:text-red-400"
+                >
+                  #4 &ndash; ???
+                </h3>
+                <footer>
+                  <p class="mb-2">
+                    <span class="sr-only">Julkaistu</span>
+                    <time datetime="2021-03-27">27.3.2021</time>
+                  </p>
+                </footer>
+                <p>Jaksokuvaus...</p>
+              </a>
+            </div>
+          </article>
+          <article class="w-full md:w-2/4 mb-3">
+            <div
+              class="mr-3 rounded bg-white shadow-md hover:shadow-lg transition group"
+            >
+              <a href="#" class="block p-3">
+                <h3
+                  class="font-bold mb-2 text-lg underline group-hover:text-red-400"
+                >
+                  #4 &ndash; ???
+                </h3>
+                <footer>
+                  <p class="mb-2">
+                    <span class="sr-only">Julkaistu</span>
+                    <time datetime="2021-03-27">27.3.2021</time>
+                  </p>
+                </footer>
+                <p>Jaksokuvaus...</p>
+              </a>
+            </div>
+          </article>
 
-        <article class="-m-2 p-2 rounded hover:bg-yellow-100">
-          <a href="#">
-            <h3 class="font-bold mb-2 text-lg underline">#1 &ndash; Intro</h3>
-            <footer>
-              <p class="mb-2">
-                <span class="sr-only">Julkaistu</span>
-                <time datetime="2021-03-27">27.3.2021</time>
-              </p>
-            </footer>
-            <p>Jaksokuvaus...</p>
-          </a>
-        </article>
+          <article class="w-full md:w-2/4 mb-3">
+            <div
+              class="mr-3 rounded bg-white shadow-md hover:shadow-lg transition group"
+            >
+              <a href="#" class="block p-3">
+                <h3
+                  class="font-bold mb-2 text-lg underline group-hover:text-red-400"
+                >
+                  #4 &ndash; ???
+                </h3>
+                <footer>
+                  <p class="mb-2">
+                    <span class="sr-only">Julkaistu</span>
+                    <time datetime="2021-03-27">27.3.2021</time>
+                  </p>
+                </footer>
+                <p>Jaksokuvaus...</p>
+              </a>
+            </div>
+          </article>
+        </div>
       </main>
 
-      <footer class="border-t mt-8 pt-8">&copy; Mario Bros. 2021</footer>
+      <footer class="border-t mt-8 pt-8">&copy; Koodikrapula 2021</footer>
     </div>
   </body>
 </html>
