@@ -1,0 +1,14 @@
+{
+  "name": "koodikrapula.fi",
+  "version": "1.0.0",
+  "description": "Our nice website",
+  "scripts": {
+    "watch": "rm -rf ./_site/ && npx @11ty/eleventy --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Koodikrapula",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}
