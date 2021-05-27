@@ -9,6 +9,9 @@
   "author": "Koodikrapula",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1"
+    "@11ty/eleventy": "^0.12.1",
+    "prettier": "^2.3.0",
+    "prettier-plugin-twig-enhancements": "^1.0.1",
+    "prettier-plugin-twig-melody": "^0.4.6"
   }
 }
