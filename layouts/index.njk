@@ -57,7 +57,7 @@
           <a
             href="{{ episode.url }}"
             class="hover:text-red-500 active:text-red-700"
-            >{{ episode.data.title }}</a
+            >{{ episode.data.title | safe }}</a
           >
         </h3>
         <footer>
