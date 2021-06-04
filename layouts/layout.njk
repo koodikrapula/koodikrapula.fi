@@ -3,8 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Koodikrapula.fi</title>
-    <meta name="description" content="Podcast koodista ja krapulasta. 🐵" />
+    <title>
+      {{- (metaTitle or title)|trim|safe -}}
+      {{- (' &ndash; Koodikrapula'|safe) if page.url !== '/' -}}
+    </title>
+    <meta
+      name="description"
+      content="{{ (metaDescription or description)|trim|replace('\n', ' ') }}"
+    />
     <script
       async
       src="https://cdn.skypack.dev/twind/shim"
