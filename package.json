@@ -1,13 +1,17 @@
 {
   "name": "koodikrapula.fi",
-  "version": "1.0.0",
-  "description": "Our nice website",
-  "scripts": {
-    "watch": "rm -rf ./_site/ && npx @11ty/eleventy --serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Koodikrapula",
+  "description": "Home for the Koodikrapula podcast. Built using 11ty.",
   "license": "MIT",
+  "author": "Koodikrapula (https://koodikrapula.fi/)",
+  "contributors": [
+    "Hannes Kinnunen (https://hanki.dev/)",
+    "Matias Kinnunen (https://mtsknn.fi/)"
+  ],
+  "scripts": {
+    "build": "npm run clean && npx @11ty/eleventy",
+    "clean": "rm -rf ./_site/",
+    "start": "npm run clean && npx @11ty/eleventy --serve"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1"
   }
