@@ -1,11 +1,7 @@
 {% extends '_layout.njk' %}
 
 {% block content %}
-<h1>
-    {{ title }}
-</h1>
+  <h1>{{ title|safe }}</h1>
 
-<p>
-    {{ content | safe }}
-</p>
+  <p>{{ content|safe }}</p>
 {% endblock %}
