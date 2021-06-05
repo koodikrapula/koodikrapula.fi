@@ -1,13 +1,11 @@
 const util = require('util')
 
 module.exports = (config) => {
-  config.addCollection(
-    'episodes',
-    (collectionApi) =>
-      collectionApi
-        .getFilteredByGlob('./content/*.md')
-        .filter((page) => /^\d+$/.test(page.fileSlug)) // Check if file name is number
-        .reverse() // Newest first
+  config.addCollection('episodes', (collectionApi) =>
+    collectionApi
+      .getFilteredByGlob('./content/episodes/*.md')
+      // Newest first
+      .reverse()
   )
 
   config.addFilter('console', (value) => util.inspect(value))

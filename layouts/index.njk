@@ -1,55 +1,56 @@
 {% extends 'layout.njk' %}
 
 {% block content %}
-<h1 class="sr-only">{{ title }}</h1>
+  <h1 class="sr-only">{{ title }}</h1>
 
-<h2 class="sr-only">Viimeisin jakso</h2>
+  <h2 class="sr-only">Viimeisin jakso</h2>
 
-<article class="mb-10 px-6 py-8 rounded -mx-6 bg-[#f1f3f5]">
-  <div class="max-w-2xl mx-auto">
-    <h3 class="font-semibold mb-3 text-xl">
-      <a
-        class="underline hover:text-red-500 active:text-red-700"
-        href="#"
-        style="text-decoration-thickness: 1px"
-      >
-        #5 &ndash; Windows PowerTools &amp; Firefox Add-ons
-      </a>
-    </h3>
-    <footer>
-      <p class="mb-4 text-gray-500">
-        <svg
-          aria-hidden="true"
-          class="align-top inline h-4 w-4 mr-1 mt-1"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+  <article class="mb-10 px-6 py-8 rounded -mx-6 bg-[#f1f3f5]">
+    <div class="max-w-2xl mx-auto">
+      <h3 class="font-semibold mb-3 text-xl">
+        <a
+          class="underline hover:text-red-500 active:text-red-700"
+          href="#"
+          style="text-decoration-thickness: 1px"
         >
-          <path
-            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-        </svg>
-        <span class="sr-only">Julkaistu</span>
-        <time datetime="2021-03-27">27.3.2021</time>
+          #5 &ndash; Windows PowerTools &amp; Firefox Add-ons
+        </a>
+      </h3>
+      <footer>
+        <p class="mb-4 text-gray-500">
+          <svg
+            aria-hidden="true"
+            class="align-top inline h-4 w-4 mr-1 mt-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+          <span class="sr-only">Julkaistu</span>
+          <time datetime="2021-03-27">27.3.2021</time>
+        </p>
+      </footer>
+      <p class="mb-4 text-lg">
+        Juttelua Windowsin tehotyökaluista sekä hyödyllisistä
+        Firefox-lisäosista.
       </p>
-    </footer>
-    <p class="mb-4 text-lg">
-      Juttelua Windowsin tehotyökaluista sekä hyödyllisistä Firefox-lisäosista.
-    </p>
-    <p class="mb-2">
-      <a class="underline hover:text-red-500 active:text-red-700" href="#"
-        >Jaksomuikkarit &rarr;</a
-      >
-    </p>
-    <!-- Player here -->
-  </div>
-</article>
+      <p class="mb-2">
+        <a class="underline hover:text-red-500 active:text-red-700" href="#">
+          Jaksomuikkarit &rarr;
+        </a>
+      </p>
+      <!-- Player here -->
+    </div>
+  </article>
 
-<div class="max-w-2xl mx-auto">
-  <h2 class="font-bold text-xl md:mb-4">Menneet jaksot</h2>
+  <div class="max-w-2xl mx-auto">
+    <h2 class="font-bold text-xl md:mb-4">Menneet jaksot</h2>
 
   <div class="flex flex-wrap divide-y-2 md:divide-y-0">
     {% for episode in collections.episodes %}
@@ -59,7 +60,7 @@
           <a
             href="{{ episode.url }}"
             class="hover:text-red-500 active:text-red-700"
-            >{{ episode.data.title }}</a
+            >{{ episode.data.title | safe }}</a
           >
         </h3>
         <footer>
@@ -87,5 +88,4 @@
     </article>
     {% endfor %}
   </div>
-</div>
 {% endblock %}
