@@ -1,3 +1,4 @@
+const fs = require('fs')
 const util = require('util')
 
 module.exports = (config) => {
@@ -9,6 +10,20 @@ module.exports = (config) => {
   )
 
   config.addFilter('console', (value) => util.inspect(value))
+
+  config.setBrowserSyncConfig({
+    callbacks: {
+      ready(err, browserSync) {
+        // Provides the 404 content without redirect. Source:
+        // https://github.com/11ty/eleventy-base-blog/blob/v5.0.2/.eleventy.js#L56-L64
+        const notFoundContent = fs.readFileSync('./_site/404.html')
+        browserSync.addMiddleware('*', (req, res) => {
+          res.write(notFoundContent)
+          res.end()
+        })
+      },
+    },
+  })
 
   return {
     dir: {
