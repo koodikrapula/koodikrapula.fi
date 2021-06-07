@@ -1,0 +1,11 @@
+{% extends '_layout.njk' %}
+
+{% block content %}
+  <div class="max-w-2xl mx-auto">
+    <h1 class="font-bold mb-4 text-2xl">
+      {{ title }}
+      <span class="whitespace-nowrap" aria-hidden="true">¯\(ツ)/¯</span>
+    </h1>
+    {{ content|safe }}
+  </div>
+{% endblock %}
