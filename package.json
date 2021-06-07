@@ -12,8 +12,10 @@
     "clean": "rm -rf ./_site/",
     "start": "npm run clean && npx @11ty/eleventy --serve"
   },
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  },
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
     "prettier": "^2.3.0",
     "prettier-plugin-twig-enhancements": "^1.0.1",
     "prettier-plugin-twig-melody": "^0.4.6"
