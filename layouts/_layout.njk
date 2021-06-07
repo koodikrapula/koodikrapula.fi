@@ -7,10 +7,12 @@
       {{- (metaTitle or title)|trim|safe -}}
       {{- (' &ndash; Koodikrapula'|safe) if page.url !== '/' -}}
     </title>
-    <meta
-      name="description"
-      content="{{ (metaDescription or description)|trim|replace('\n', ' ') }}"
-    />
+    {% if metaDescription or description %}
+      <meta
+        name="description"
+        content="{{ (metaDescription or description)|trim|replace('\n', ' ') }}"
+      />
+    {% endif %}
     <script
       async
       src="https://cdn.skypack.dev/twind/shim"
