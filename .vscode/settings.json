@@ -1,0 +1,4 @@
+{
+  // Register the Prettier plugin as the formatter for Nunjucks files
+  "prettier.documentSelectors": ["**/*.njk"]
+}
