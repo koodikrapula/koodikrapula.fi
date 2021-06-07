@@ -1,5 +1,5 @@
 ---
-layout: index
+layout: home
 title: 'Koodikrapula'
 metaTitle: 'Koodikrapula &ndash; Podcast koodista ja krapulasta'
 metaDescription: |
