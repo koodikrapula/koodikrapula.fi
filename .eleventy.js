@@ -1,3 +1,5 @@
+require('sexy-require')
+
 const util = require('util')
 
 module.exports = (config) => {

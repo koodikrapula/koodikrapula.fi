@@ -13,5 +13,8 @@
     "prettier": "^2.3.0",
     "prettier-plugin-twig-enhancements": "^1.0.1",
     "prettier-plugin-twig-melody": "^0.4.6"
+  },
+  "dependencies": {
+    "sexy-require": "^1.1.2"
   }
 }
