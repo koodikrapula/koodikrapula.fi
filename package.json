@@ -1,12 +1,4 @@
 {
-  "name": "koodikrapula.fi",
-  "description": "Home for the Koodikrapula podcast. Built using 11ty.",
-  "license": "MIT",
-  "author": "Koodikrapula (https://koodikrapula.fi/)",
-  "contributors": [
-    "Hannes Kinnunen (https://hanki.dev/)",
-    "Matias Kinnunen (https://mtsknn.fi/)"
-  ],
   "scripts": {
     "build": "npm run clean && npx @11ty/eleventy",
     "clean": "rm -rf ./_site/",
