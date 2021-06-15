@@ -1,5 +1,7 @@
 ---
 title: 'Hello world'
+recorded: 2021-06-01
+date: 2021-06-01 # Publish date
 description: |
   A nice episode
   about pots and rainbows.
@@ -9,8 +11,6 @@ metaDescription: |
   If given,
   used in `<meta name="description">`;
   otherwise `description` is used.
-date: 2021-06-01 # Publish date
-recorded: 2021-06-01
 ---
 
 Bacon ipsum
