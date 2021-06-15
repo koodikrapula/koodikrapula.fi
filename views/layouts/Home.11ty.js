@@ -31,7 +31,7 @@ const LatestEpisode = ({
       </h3>
       <${EpisodeMeta} class="mb-4" date=${date} recorded=${recorded} />
       <p class="mb-4 text-lg">${description}</p>
-      <p class="mb-2">
+      <p>
         <${Link} href=${url}>Jaksomuikkarit ${char.rarr}<//>
       </p>
       <!-- Player here -->
@@ -40,14 +40,12 @@ const LatestEpisode = ({
 `
 
 const Episode = ({ data: { description, recorded, title }, date, url }) => html`
-  <article aria-label=${`Jakso ${title}`} class="w-full py-6 md:(w-1/2 pr-6)">
-    <div class="mr-3">
-      <h3 class="font-semibold mb-2 text-lg underline">
-        <${Link} href=${url}>${title}<//>
-      </h3>
-      <${EpisodeMeta} class="mb-4" date=${date} recorded=${recorded} />
-      <p>${description}</p>
-    </div>
+  <article aria-label=${`Jakso ${title}`} class="pt(8 md:0)">
+    <h3 class="font-semibold mb-2 text-lg">
+      <${Link} href=${url}>${title}<//>
+    </h3>
+    <${EpisodeMeta} class="mb-4" date=${date} recorded=${recorded} />
+    <p>${description}</p>
   </article>
 `
 
@@ -66,10 +64,12 @@ module.exports = (data) => {
       <h2 class="sr-only">Viimeisin jakso</h2>
       <${LatestEpisode} ...${latestEpisode} />
 
-      <div class="max-w-2xl mx-auto">
-        <h2 class="font-bold text-xl md:mb-4">Aiemmat jaksot</h2>
+      <div class="max-w-2xl mx-auto mb-4">
+        <h2 class="font-bold text-xl md:mb-8">Aiemmat jaksot</h2>
 
-        <div class="flex flex-wrap divide-y-2 md:divide-y-0">
+        <div
+          class="grid grid-cols-1 gap-8 divide-y-2 md:(grid-cols-2 divide-y-0)"
+        >
           ${pastEpisodes.map((episode) => html`<${Episode} ...${episode} />`)}
         </div>
       </div>
