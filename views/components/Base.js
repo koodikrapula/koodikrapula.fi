@@ -42,7 +42,7 @@ const Header = () => {
 
 const Footer = () => html`
   <footer class="mt-auto py-8 text-gray-600">
-    <${MaxWidth} class="border-t-2 pt-8">${char.copy} Koodikrapula 2021<//>
+    <${MaxWidth} class="border-t-2 mt-6 pt-8">${char.copy} Koodikrapula 2021<//>
   </footer>
 `
 

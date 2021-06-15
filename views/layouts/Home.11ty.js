@@ -56,7 +56,7 @@ module.exports = (data) => {
       <h2 class="sr-only">Viimeisin jakso</h2>
       <${LatestEpisode} ...${latestEpisode} />
 
-      <${MaxWidth} class="mb-4">
+      <${MaxWidth}>
         <h2 class="font-bold text-xl md:mb-8">Aiemmat jaksot</h2>
 
         <div
