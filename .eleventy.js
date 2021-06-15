@@ -13,6 +13,8 @@ module.exports = (config) => {
       .reverse()
   )
 
+  config.addPassthroughCopy('./assets')
+
   // See https://browsersync.io/docs/options for all options
   config.setBrowserSyncConfig({
     // > Clicks, scrolls & form inputs on any device

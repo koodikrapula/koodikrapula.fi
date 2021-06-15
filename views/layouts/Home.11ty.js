@@ -15,14 +15,14 @@ const LatestEpisode = ({
 }) => html`
   <article
     aria-label=${`Viimeisin jakso; jakso ${title}`}
-    class="mb-10 px-6 py-8 rounded -mx-6 bg-gray-100"
+    class="mb-10 -mx-6 px-6 py-8 bg-gray-100"
   >
-    <${MaxWidth}>
-      <h3 class="font-semibold mb-3 text-2xl">
+    <${MaxWidth} class="prose prose-lg">
+      <h3>
         <${Link} aria-label="Jakso ${title}" href=${url}>${title}<//>
       </h3>
-      <${EpisodeMeta} class="mb-4" date=${date} recorded=${recorded} />
-      <p class="mb-4 text-lg">${description}</p>
+      <${EpisodeMeta} date=${date} large recorded=${recorded} />
+      <p>${description}</p>
       <p>
         <${Link} href=${url}>Jaksomuikkarit ${char.rarr}<//>
       </p>
@@ -33,10 +33,10 @@ const LatestEpisode = ({
 
 const Episode = ({ data: { description, recorded, title }, date, url }) => html`
   <article aria-label=${`Jakso ${title}`} class="pt(8 md:0)">
-    <h3 class="font-semibold mb-2 text-lg">
+    <h3>
       <${Link} aria-label="Jakso ${title}" href=${url}>${title}<//>
     </h3>
-    <${EpisodeMeta} class="mb-4" date=${date} recorded=${recorded} />
+    <${EpisodeMeta} date=${date} recorded=${recorded} />
     <p>${description}</p>
   </article>
 `
@@ -56,8 +56,8 @@ module.exports = (data) => {
       <h2 class="sr-only">Viimeisin jakso</h2>
       <${LatestEpisode} ...${latestEpisode} />
 
-      <${MaxWidth}>
-        <h2 class="font-bold text-xl md:mb-8">Aiemmat jaksot</h2>
+      <${MaxWidth} class="prose">
+        <h2>Aiemmat jaksot</h2>
 
         <div
           class="grid grid-cols-1 gap-8 divide-y-2 md:(grid-cols-2 divide-y-0)"

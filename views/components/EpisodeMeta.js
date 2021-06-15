@@ -1,10 +1,11 @@
 const { CalendarIcon, MicrophoneIcon } = require('@heroicons/react/outline')
 const { html } = require('htm/preact')
 
-module.exports = ({ class: classes = '', date, recorded }) => {
+module.exports = ({ date, large = false, recorded }) => {
+  const iconSize = large ? 5 : 4
   const iconProps = {
     'aria-hidden': true,
-    class: 'align-top inline h-4 w-4 mr-1 mt-1 text-gray-400',
+    class: `align-text-bottom inline h-${iconSize} w-${iconSize} mr-2 mb-0.5 text-gray-400`,
   }
   const format = {
     human: (date) => date.toLocaleString('fi', { dateStyle: 'short' }),
@@ -12,14 +13,13 @@ module.exports = ({ class: classes = '', date, recorded }) => {
   }
 
   return html`
-    <footer class="text-gray-700 ${classes}">
-      <p>
-        <span>
-          <${CalendarIcon} ...${iconProps} />
-          <span class="sr-only">Julkaistu </span>
-          <time datetime=${format.robot(date)}>${format.human(date)}</time>
-        </span>
-        <span class="ml-3">
+    <footer class="text-gray-700">
+      <p class="my-0!">
+        <${CalendarIcon} ...${iconProps} />
+        <span class="sr-only">Julkaistu </span>
+        <time datetime=${format.robot(date)}>${format.human(date)}</time>
+
+        <span class="ml-${large ? 7 : 6}">
           <${MicrophoneIcon} ...${iconProps} />
           <span class="sr-only">, äänitetty </span>
           <time datetime=${format.robot(recorded)}>

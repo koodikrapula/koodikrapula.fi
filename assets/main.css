@@ -1,0 +1,40 @@
+/* TODO: Move these to JS side (Twind) */
+
+:root {
+  --color-gray-300: hsl(216deg 12% 84%);
+  --color-red-600: hsl(0deg 72% 51%);
+  --color-red-700: hsl(0deg 74% 42%);
+  --color-yellow-300-o-50: hsla(46deg 97% 65% / 50%);
+}
+
+::selection {
+  /* Chrome stupidly hides text underlines behind the bg color,
+     so the color's opacity is reduced
+     to make underlines at least somewhat visible */
+  background-color: var(--color-yellow-300-o-50);
+}
+
+/* Prose styles need to be declared here
+   because of these issues:
+   - https://github.com/tw-in-js/typography/issues/1
+   - https://github.com/tw-in-js/typography/issues/3 */
+.prose.prose a {
+  font-weight: normal;
+}
+.prose a:hover {
+  color: var(--color-red-600);
+}
+.prose a:active {
+  color: var(--color-red-700);
+}
+.prose ol > li,
+.prose ul > li {
+  position: relative;
+}
+.prose ol > li::before,
+.prose ul > li::before {
+  content: '';
+  position: absolute;
+  background-color: var(--color-gray-300);
+  border-radius: 50%;
+}

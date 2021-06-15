@@ -66,11 +66,8 @@ module.exports = ({
         name="description"
         content=${(metaDescription || description).trim().replace('\n', ' ')}
       />
-      <script
-        async
-        src="https://cdn.skypack.dev/twind/shim"
-        type="module"
-      ></script>
+      <script async src="/assets/twind.js" type="module"></script>
+      <link rel="stylesheet" href="/assets/main.css" />
     </head>
 
     <body class="h-full overflow-y-scroll">
