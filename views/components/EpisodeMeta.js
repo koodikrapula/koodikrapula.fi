@@ -12,7 +12,7 @@ module.exports = ({ class: classes, date, recorded }) => {
   }
 
   return html`
-    <footer class="text-gray-600 ${classes}">
+    <footer class="text-gray-700 ${classes}">
       <p>
         <span>
           <${CalendarIcon} ...${iconProps} />
