@@ -17,6 +17,7 @@
     "htm": "^3.0.4",
     "preact": "^10.5.13",
     "preact-render-to-string": "^5.1.19",
+    "react": "^17.0.2",
     "sexy-require": "^1.1.2"
   }
 }
