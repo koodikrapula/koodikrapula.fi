@@ -17,7 +17,7 @@ module.exports = ({ class: classes, date, recorded }) => {
         <span>
           <${CalendarIcon} ...${iconProps} />
           <span class="sr-only">Julkaistu </span>
-          <time datetime=${format.robot(date)}> ${format.human(date)} </time>
+          <time datetime=${format.robot(date)}>${format.human(date)}</time>
         </span>
         <span class="ml-3">
           <${MicrophoneIcon} ...${iconProps} />
