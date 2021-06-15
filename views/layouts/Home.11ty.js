@@ -23,7 +23,7 @@ const LatestEpisode = ({
 }) => html`
   <article
     aria-label=${`Viimeisin jakso; jakso ${title}`}
-    class="mb-10 px-6 py-8 rounded -mx-6 bg-[#f1f3f5]"
+    class="mb-10 px-6 py-8 rounded -mx-6 bg-gray-100"
   >
     <div class="max-w-2xl mx-auto">
       <h3 class="font-semibold mb-3 text-xl">
@@ -45,7 +45,7 @@ const Episode = ({ data: { description, recorded, title }, date, url }) => html`
       <h3 class="font-semibold mb-2 text-lg underline">
         <${Link} href=${url}>${title}</a>
       </h3>
-      <${EpisodeMeta} class="mb-2" date=${date} recorded=${recorded} />
+      <${EpisodeMeta} class="mb-4" date=${date} recorded=${recorded} />
       <p>${description}</p>
     </div>
   </article>
