@@ -5,17 +5,8 @@ const loadComponent = require('../loadComponent')
 
 const Base = loadComponent('Base')
 const EpisodeMeta = loadComponent('EpisodeMeta')
+const Link = loadComponent('Link')
 const MaxWidth = loadComponent('MaxWidth')
-
-const Link = ({ children, href }) => html`
-  <a
-    class="underline text-red(hover:500 active:700)"
-    href=${href}
-    style="text-decoration-thickness: 1px"
-  >
-    ${children}
-  </a>
-`
 
 const LatestEpisode = ({
   data: { description, recorded, title },

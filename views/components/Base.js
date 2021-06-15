@@ -3,6 +3,7 @@ const { html } = require('htm/preact')
 const char = require('/data/char')
 const loadComponent = require('../loadComponent')
 
+const Link = loadComponent('Link')
 const MaxWidth = loadComponent('MaxWidth')
 
 const Header = () => {
@@ -14,22 +15,22 @@ const Header = () => {
   return html`
     <header>
       <${MaxWidth} as="nav">
-        <a
+        <${Link}
+          class="inline-block -mx-1 my-4 px-1 py-px rounded font-mono no-underline text(2xl red-600) hover:bg-gray-100"
           href="/"
-          class="inline-block font(mono) my-4 -mx-1 px-1 py-px rounded text(2xl red-600) hover:(bg-gray-100 text-red-500) active:text-red-700"
         >
           Koodikrapula.fi
-        </a>
+        <//>
         <ul class="mb-6 space-x-6">
           ${links.map(
             ({ href, title }) => html`
               <li class="inline">
-                <a
+                <${Link}
+                  class="no-underline -mx-1 p-1 rounded hover:bg-gray-100"
                   href=${href}
-                  class="p-1 -mx-1 rounded hover:(bg-gray-100 text-red-500) active:text-red-700"
                 >
                   ${title}
-                </a>
+                <//>
               </li>
             `
           )}
