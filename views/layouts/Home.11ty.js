@@ -6,6 +6,16 @@ const loadComponent = require('../loadComponent')
 const Base = loadComponent('Base')
 const EpisodeMeta = loadComponent('EpisodeMeta')
 
+const Link = ({ children, href }) => html`
+  <a
+    class="underline text-red(hover:500 active:700)"
+    href=${href}
+    style="text-decoration-thickness: 1px"
+  >
+    ${children}
+  </a>
+`
+
 const LatestEpisode = ({
   data: { description, recorded, title },
   date,
@@ -17,20 +27,12 @@ const LatestEpisode = ({
   >
     <div class="max-w-2xl mx-auto">
       <h3 class="font-semibold mb-3 text-xl">
-        <a
-          class="underline text-red(hover:500 active:700)"
-          href=${url}
-          style="text-decoration-thickness: 1px"
-        >
-          ${title}
-        </a>
+        <${Link} href=${url}>${title}<//>
       </h3>
       <${EpisodeMeta} class="mb-4" date=${date} recorded=${recorded} />
       <p class="mb-4 text-lg">${description}</p>
       <p class="mb-2">
-        <a class="underline text-red(hover:500 active:700)" href=${url}>
-          Jaksomuikkarit ${char.rarr}
-        </a>
+        <${Link} href=${url}>Jaksomuikkarit ${char.rarr}<//>
       </p>
       <!-- Player here -->
     </div>
@@ -41,7 +43,7 @@ const Episode = ({ data: { description, recorded, title }, date, url }) => html`
   <article aria-label=${`Jakso ${title}`} class="w-full py-6 md:(w-1/2 pr-6)">
     <div class="mr-3">
       <h3 class="font-semibold mb-2 text-lg underline">
-        <a href=${url} class="text-red(hover:500 active:700)">${title}</a>
+        <${Link} href=${url}>${title}</a>
       </h3>
       <${EpisodeMeta} class="mb-2" date=${date} recorded=${recorded} />
       <p>${description}</p>
