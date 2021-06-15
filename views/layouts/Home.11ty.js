@@ -62,7 +62,7 @@ module.exports = (data) => {
       <${LatestEpisode} ...${latestEpisode} />
 
       <div class="max-w-2xl mx-auto">
-        <h2 class="font-bold text-xl md:mb-4">Menneet jaksot</h2>
+        <h2 class="font-bold text-xl md:mb-4">Aiemmat jaksot</h2>
 
         <div class="flex flex-wrap divide-y-2 md:divide-y-0">
           ${pastEpisodes.map((episode) => html`<${Episode} ...${episode} />`)}
