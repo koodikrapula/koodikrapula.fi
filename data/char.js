@@ -15,4 +15,5 @@ module.exports = {
   copy: '©',
   ndash: '–',
   rarr: '→',
+  trade: '™',
 }
