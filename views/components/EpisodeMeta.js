@@ -21,7 +21,7 @@ module.exports = ({ class: classes = '', date, recorded }) => {
         </span>
         <span class="ml-3">
           <${MicrophoneIcon} ...${iconProps} />
-          <span class="sr-only"> ja äänitetty </span>
+          <span class="sr-only">, äänitetty </span>
           <time datetime=${format.robot(recorded)}>
             ${format.human(recorded)}
           </time>

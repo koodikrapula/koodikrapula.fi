@@ -19,7 +19,7 @@ const LatestEpisode = ({
   >
     <${MaxWidth}>
       <h3 class="font-semibold mb-3 text-xl">
-        <${Link} href=${url}>${title}<//>
+        <${Link} aria-label="Jakso ${title}" href=${url}>${title}<//>
       </h3>
       <${EpisodeMeta} class="mb-4" date=${date} recorded=${recorded} />
       <p class="mb-4 text-lg">${description}</p>
@@ -34,7 +34,7 @@ const LatestEpisode = ({
 const Episode = ({ data: { description, recorded, title }, date, url }) => html`
   <article aria-label=${`Jakso ${title}`} class="pt(8 md:0)">
     <h3 class="font-semibold mb-2 text-lg">
-      <${Link} href=${url}>${title}<//>
+      <${Link} aria-label="Jakso ${title}" href=${url}>${title}<//>
     </h3>
     <${EpisodeMeta} class="mb-4" date=${date} recorded=${recorded} />
     <p>${description}</p>
