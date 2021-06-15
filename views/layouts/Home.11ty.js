@@ -5,6 +5,7 @@ const loadComponent = require('../loadComponent')
 
 const Base = loadComponent('Base')
 const EpisodeMeta = loadComponent('EpisodeMeta')
+const MaxWidth = loadComponent('MaxWidth')
 
 const Link = ({ children, href }) => html`
   <a
@@ -25,7 +26,7 @@ const LatestEpisode = ({
     aria-label=${`Viimeisin jakso; jakso ${title}`}
     class="mb-10 px-6 py-8 rounded -mx-6 bg-gray-100"
   >
-    <div class="max-w-2xl mx-auto">
+    <${MaxWidth}>
       <h3 class="font-semibold mb-3 text-xl">
         <${Link} href=${url}>${title}<//>
       </h3>
@@ -35,7 +36,7 @@ const LatestEpisode = ({
         <${Link} href=${url}>Jaksomuikkarit ${char.rarr}<//>
       </p>
       <!-- Player here -->
-    </div>
+    <//>
   </article>
 `
 
@@ -64,7 +65,7 @@ module.exports = (data) => {
       <h2 class="sr-only">Viimeisin jakso</h2>
       <${LatestEpisode} ...${latestEpisode} />
 
-      <div class="max-w-2xl mx-auto mb-4">
+      <${MaxWidth} class="mb-4">
         <h2 class="font-bold text-xl md:mb-8">Aiemmat jaksot</h2>
 
         <div
@@ -72,7 +73,7 @@ module.exports = (data) => {
         >
           ${pastEpisodes.map((episode) => html`<${Episode} ...${episode} />`)}
         </div>
-      </div>
+      <//>
     <//>
   `
 }
