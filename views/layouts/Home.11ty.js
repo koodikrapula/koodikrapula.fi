@@ -18,7 +18,7 @@ const LatestEpisode = ({
     class="mb-10 px-6 py-8 rounded -mx-6 bg-gray-100"
   >
     <${MaxWidth}>
-      <h3 class="font-semibold mb-3 text-xl">
+      <h3 class="font-semibold mb-3 text-2xl">
         <${Link} aria-label="Jakso ${title}" href=${url}>${title}<//>
       </h3>
       <${EpisodeMeta} class="mb-4" date=${date} recorded=${recorded} />

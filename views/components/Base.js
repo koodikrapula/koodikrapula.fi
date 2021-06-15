@@ -73,7 +73,7 @@ module.exports = ({
       ></script>
     </head>
 
-    <body class="h-full">
+    <body class="h-full overflow-y-scroll">
       <div class="flex flex-col min-h-full px-6">
         <${Header} />
         <main>${children}</main>
