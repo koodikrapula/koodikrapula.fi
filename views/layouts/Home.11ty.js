@@ -11,7 +11,10 @@ const LatestEpisode = ({
   date,
   url,
 }) => html`
-  <article class="mb-10 px-6 py-8 rounded -mx-6 bg-[#f1f3f5]">
+  <article
+    aria-label=${`Viimeisin jakso; jakso ${title}`}
+    class="mb-10 px-6 py-8 rounded -mx-6 bg-[#f1f3f5]"
+  >
     <div class="max-w-2xl mx-auto">
       <h3 class="font-semibold mb-3 text-xl">
         <a
@@ -35,7 +38,7 @@ const LatestEpisode = ({
 `
 
 const Episode = ({ data: { description, recorded, title }, date, url }) => html`
-  <article class="w-full py-6 md:(w-1/2 pr-6)">
+  <article aria-label=${`Jakso ${title}`} class="w-full py-6 md:(w-1/2 pr-6)">
     <div class="mr-3">
       <h3 class="font-semibold mb-2 text-lg underline">
         <a href=${url} class="text-red(hover:500 active:700)">${title}</a>
