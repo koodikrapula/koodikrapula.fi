@@ -1,7 +1,7 @@
 const { CalendarIcon, MicrophoneIcon } = require('@heroicons/react/outline')
 const { html } = require('htm/preact')
 
-module.exports = ({ class: classes, date, recorded }) => {
+module.exports = ({ class: classes = '', date, recorded }) => {
   const iconProps = {
     'aria-hidden': true,
     class: 'align-top inline h-4 w-4 mr-1 mt-1 text-gray-400',
