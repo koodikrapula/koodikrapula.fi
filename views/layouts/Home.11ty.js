@@ -43,7 +43,7 @@ const Episode = ({ data: { description, recorded, title }, date, url }) => html`
   <article aria-label=${`Jakso ${title}`} class="w-full py-6 md:(w-1/2 pr-6)">
     <div class="mr-3">
       <h3 class="font-semibold mb-2 text-lg underline">
-        <${Link} href=${url}>${title}</a>
+        <${Link} href=${url}>${title}<//>
       </h3>
       <${EpisodeMeta} class="mb-4" date=${date} recorded=${recorded} />
       <p>${description}</p>
