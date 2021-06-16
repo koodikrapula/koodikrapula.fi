@@ -1,4 +1,7 @@
 {
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
   // Register the Prettier plugin as the formatter for Nunjucks files
   "prettier.documentSelectors": ["**/*.njk"]
 }
