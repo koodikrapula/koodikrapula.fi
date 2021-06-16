@@ -60,10 +60,13 @@ module.exports = ({
         ${(metaTitle || title).trim()}
         ${page.url !== '/' && ` ${char.ndash} Koodikrapula`}
       </title>
-      <meta
-        name="description"
-        content=${(metaDescription || description).trim().replace('\n', ' ')}
-      />
+      ${(metaDescription || description) &&
+      html`
+        <meta
+          name="description"
+          content=${(metaDescription || description).trim().replace('\n', ' ')}
+        />
+      `}
       <script async src="/assets/twind.js" type="module"></script>
       <link rel="stylesheet" href="/assets/main.css" />
     </head>
