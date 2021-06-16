@@ -13,7 +13,8 @@
  */
 module.exports = {
   copy: '©',
-  ndash: '–',
+  nbsp: ' ', // non-breaking space
+  ndash: '–', // en dash
   rarr: '→',
   trade: '™',
 }

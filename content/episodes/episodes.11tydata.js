@@ -13,6 +13,7 @@ module.exports = {
     permalink: (data) => `/${data.page.fileSlug}/`,
     previousEpisode: (data) =>
       getAdjacentEpisode(data.collections.episodes, data.page.url, +1),
-    title: (data) => `${data.page.fileSlug} ${char.ndash} ${data.title}`,
+    title: (data) =>
+      `${data.page.fileSlug} ${char.ndash} ${data.title}${char.nbsp}${data.emoji}`,
   },
 }
