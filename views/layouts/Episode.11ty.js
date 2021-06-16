@@ -19,6 +19,11 @@ module.exports = (data) => {
     title,
   } = data
 
+  const episodeLinks = [
+    nextEpisode && ['Seuraava jakso', nextEpisode],
+    previousEpisode && ['Edellinen jakso', previousEpisode],
+  ].filter(Boolean)
+
   return html`
     <${Base} ...${data}>
       <main>
@@ -39,34 +44,23 @@ module.exports = (data) => {
         <//>
       </main>
 
-      ${(previousEpisode || nextEpisode) &&
+      ${episodeLinks.length > 0 &&
       html`
         <${MaxWidth} as="aside" class="border-t-2 mt-5 pt-8 prose">
           <ul>
-            ${nextEpisode &&
-            html`
-              <li>
-                ${'Seuraava jakso: '}
-                <${Link}
-                  aria-label="Jakso ${nextEpisode.data.title}"
-                  href=${nextEpisode.url}
-                >
-                  ${nextEpisode.data.title}
-                <//>
-              </li>
-            `}
-            ${previousEpisode &&
-            html`
-              <li>
-                ${'Edellinen jakso: '}
-                <${Link}
-                  aria-label="Jakso ${previousEpisode.data.title}"
-                  href=${previousEpisode.url}
-                >
-                  ${previousEpisode.data.title}
-                <//>
-              </li>
-            `}
+            ${episodeLinks.map(
+              ([label, episode]) => html`
+                <li>
+                  <span>${label}: </span>
+                  <${Link}
+                    aria-label="Jakso ${episode.data.title}"
+                    href=${episode.url}
+                  >
+                    ${episode.data.title}
+                  <//>
+                </li>
+              `
+            )}
           </ul>
         <//>
       `}
