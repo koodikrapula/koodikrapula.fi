@@ -4,6 +4,7 @@ module.exports = {
   layout: 'episode',
   eleventyComputed: {
     permalink: (data) => `/${data.page.fileSlug}/`,
-    title: (data) => `${data.page.fileSlug} ${char.ndash} ${data.title}`,
+    title: (data) =>
+      `${data.page.fileSlug} ${char.ndash} ${data.title}${char.nbsp}${data.emoji}`,
   },
 }
