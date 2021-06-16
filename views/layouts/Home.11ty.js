@@ -51,26 +51,28 @@ module.exports = (data) => {
 
   return html`
     <${Base} ...${data}>
-      <h1 class="sr-only">${title}</h1>
+      <main>
+        <h1 class="sr-only">${title}</h1>
 
-      <h2 class="sr-only">Viimeisin jakso</h2>
-      <${LatestEpisode} ...${latestEpisode} />
+        <h2 class="sr-only">Viimeisin jakso</h2>
+        <${LatestEpisode} ...${latestEpisode} />
 
-      <${MaxWidth} class="prose">
-        <h2 class="mb-0! md:mb-8!">Aiemmat jaksot</h2>
+        <${MaxWidth} class="prose">
+          <h2 class="mb-0! md:mb-8!">Aiemmat jaksot</h2>
 
-        ${pastEpisodes.length === 0
-          ? html`<p>Oletpa aikaisin täällä! Tule maanantaina takaisin. 😎</p>`
-          : html`
-              <div
-                class="grid grid-cols-1 gap-8 divide(y-2 dashed) md:(grid-cols-2 divide-y-0)"
-              >
-                ${pastEpisodes.map(
-                  (episode) => html`<${Episode} ...${episode} />`
-                )}
-              </div>
-            `}
-      <//>
+          ${pastEpisodes.length === 0
+            ? html`<p>Oletpa aikaisin täällä! Tule maanantaina takaisin. 😎</p>`
+            : html`
+                <div
+                  class="grid grid-cols-1 gap-8 divide(y-2 dashed) md:(grid-cols-2 divide-y-0)"
+                >
+                  ${pastEpisodes.map(
+                    (episode) => html`<${Episode} ...${episode} />`
+                  )}
+                </div>
+              `}
+        <//>
+      </main>
     <//>
   `
 }
