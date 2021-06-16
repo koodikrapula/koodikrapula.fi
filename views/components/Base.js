@@ -7,11 +7,11 @@ const Link = loadComponent('Link')
 const MaxWidth = loadComponent('MaxWidth')
 
 const Header = () => {
+  const linkClasses = 'no-underline -mx-1 p-1 rounded hover:bg-gray-100'
   const links = [
     { href: '#', title: 'Info' },
     { href: '#', title: 'Kysy kysymys!' },
   ]
-  const linkClasses = 'no-underline -mx-1 p-1 rounded hover:bg-gray-100'
 
   return html`
     <header>
