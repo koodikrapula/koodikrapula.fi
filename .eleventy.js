@@ -1,3 +1,5 @@
+require('sexy-require')
+
 module.exports = (config) => {
   config.addCollection('episodes', (collectionApi) =>
     collectionApi
