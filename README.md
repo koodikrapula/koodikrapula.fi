@@ -5,7 +5,7 @@ Made with Twind and 11ty.
 ## Development mode
 
 1. `npm install`
-2. `npm run watch`
+2. `npm start`
 3. Open [localhost:8080](http://localhost:8080/)
 
 In VS Code,
