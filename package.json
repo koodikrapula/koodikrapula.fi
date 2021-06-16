@@ -1,17 +1,19 @@
 {
-  "name": "koodikrapula.fi",
-  "version": "1.0.0",
-  "description": "Our nice website",
   "scripts": {
-    "watch": "rm -rf ./_site/ && npx @11ty/eleventy --serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run clean && npx @11ty/eleventy",
+    "clean": "rm -rf ./_site/",
+    "start": "npm run clean && npx @11ty/eleventy --serve"
   },
-  "author": "Koodikrapula",
-  "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "@11ty/eleventy": "^0.12.1",
-    "prettier": "^2.3.0",
-    "prettier-plugin-twig-enhancements": "^1.0.1",
-    "prettier-plugin-twig-melody": "^0.4.6"
+    "@heroicons/react": "^1.0.1",
+    "htm": "^3.0.4",
+    "preact": "^10.5.13",
+    "preact-render-to-string": "^5.1.19",
+    "react": "^17.0.2",
+    "sexy-require": "^1.1.2"
+  },
+  "devDependencies": {
+    "prettier": "2.3.1"
   }
 }
