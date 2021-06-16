@@ -11,12 +11,13 @@ const Header = () => {
     { href: '#', title: 'Info' },
     { href: '#', title: 'Kysy kysymys!' },
   ]
+  const linkClasses = 'no-underline -mx-1 p-1 rounded hover:bg-gray-100'
 
   return html`
     <header>
       <${MaxWidth} as="nav">
         <${Link}
-          class="inline-block -mx-1 my-4 px-1 py-px rounded font-mono no-underline text(2xl red-600) hover:bg-gray-100"
+          class="${linkClasses} inline-block my-4 font-mono text(2xl red-600)"
           href="/"
         >
           Koodikrapula.fi
@@ -25,12 +26,7 @@ const Header = () => {
           ${links.map(
             ({ href, title }) => html`
               <li class="inline">
-                <${Link}
-                  class="no-underline -mx-1 p-1 rounded hover:bg-gray-100"
-                  href=${href}
-                >
-                  ${title}
-                <//>
+                <${Link} class=${linkClasses} href=${href}>${title}<//>
               </li>
             `
           )}
