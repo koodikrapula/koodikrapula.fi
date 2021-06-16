@@ -13,7 +13,7 @@ module.exports = ({ date, large = false, recorded }) => {
   }
 
   return html`
-    <footer class="text-gray-700">
+    <footer class="text-gray-${large ? 700 : 600}">
       <p class="my-0!">
         <${CalendarIcon} ...${iconProps} />
         <span class="sr-only">Julkaistu </span>

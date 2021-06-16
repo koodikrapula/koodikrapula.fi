@@ -15,7 +15,7 @@ const LatestEpisode = ({
 }) => html`
   <article
     aria-label=${`Viimeisin jakso; jakso ${title}`}
-    class="mb-10 -mx-6 px-6 py-8 bg-gray-100"
+    class="mb-12 -mx-6 px-6 py-8 bg-gray-100"
   >
     <${MaxWidth} class="prose prose-lg">
       <h3>
@@ -33,11 +33,11 @@ const LatestEpisode = ({
 
 const Episode = ({ data: { description, recorded, title }, date, url }) => html`
   <article aria-label=${`Jakso ${title}`} class="pt(8 md:0)">
-    <h3>
+    <h3 class="mt-0!">
       <${Link} aria-label="Jakso ${title}" href=${url}>${title}<//>
     </h3>
     <${EpisodeMeta} date=${date} recorded=${recorded} />
-    <p>${description}</p>
+    <p class="mb-0!">${description}</p>
   </article>
 `
 
@@ -57,13 +57,13 @@ module.exports = (data) => {
       <${LatestEpisode} ...${latestEpisode} />
 
       <${MaxWidth} class="prose">
-        <h2>Aiemmat jaksot</h2>
+        <h2 class="mb-0! md:mb-8!">Aiemmat jaksot</h2>
 
         ${pastEpisodes.length === 0
           ? html`<p>Oletpa aikaisin täällä! Tule maanantaina takaisin. 😎</p>`
           : html`
               <div
-                class="grid grid-cols-1 gap-8 divide-y-2 md:(grid-cols-2 divide-y-0)"
+                class="grid grid-cols-1 gap-8 divide(y-2 dashed) md:(grid-cols-2 divide-y-0)"
               >
                 ${pastEpisodes.map(
                   (episode) => html`<${Episode} ...${episode} />`
