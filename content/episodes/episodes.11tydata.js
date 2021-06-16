@@ -1,4 +1,4 @@
-const char = require('../../data/char')
+const char = require('/data/char')
 
 module.exports = {
   layout: 'episode',

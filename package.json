@@ -5,7 +5,8 @@
     "start": "npm run clean && npx @11ty/eleventy --serve"
   },
   "dependencies": {
-    "@11ty/eleventy": "^0.12.1"
+    "@11ty/eleventy": "^0.12.1",
+    "sexy-require": "^1.1.2"
   },
   "devDependencies": {
     "prettier": "2.3.1",
