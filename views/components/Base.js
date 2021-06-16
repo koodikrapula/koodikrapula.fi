@@ -50,6 +50,8 @@ module.exports = ({
   page,
   title,
 }) => html`
+  <!-- The 'hidden' attribute prevents FOUC (flash of unstyled content)
+       and is removed by Twind once it has generated all styles. -->
   <html class="h-full" hidden lang="fi">
     <head>
       <meta charset="utf-8" />
