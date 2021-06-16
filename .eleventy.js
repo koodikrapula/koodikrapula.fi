@@ -1,5 +1,10 @@
 require('sexy-require')
 
+require('./patchPreact')
+
+const { isValidElement } = require('preact')
+const { render } = require('preact-render-to-string')
+
 module.exports = (config) => {
   config.addCollection('episodes', (collectionApi) =>
     collectionApi
@@ -7,6 +12,8 @@ module.exports = (config) => {
       // Newest first
       .reverse()
   )
+
+  config.addPassthroughCopy('./assets')
 
   // See https://browsersync.io/docs/options for all options
   config.setBrowserSyncConfig({
@@ -31,13 +38,19 @@ module.exports = (config) => {
   // Defaults to true in Eleventy 1.0
   config.setDataDeepMerge(true)
 
+  config.addTransform('preactLayouts', (content) =>
+    isValidElement(content) ? `<!DOCTYPE html>${render(content)}` : content
+  )
+
+  config.addWatchTarget('./views/components/')
+
   return {
     dir: {
       input: 'content',
 
       // These are relative to the input dir
       data: '../data',
-      includes: '../layouts',
+      includes: '../views/layouts',
     },
   }
 }

@@ -6,11 +6,14 @@
   },
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@heroicons/react": "^1.0.1",
+    "htm": "^3.0.4",
+    "preact": "^10.5.13",
+    "preact-render-to-string": "^5.1.19",
+    "react": "^17.0.2",
     "sexy-require": "^1.1.2"
   },
   "devDependencies": {
-    "prettier": "2.3.1",
-    "prettier-plugin-twig-enhancements": "^1.0.1",
-    "prettier-plugin-twig-melody": "^0.4.6"
+    "prettier": "2.3.1"
   }
 }
