@@ -59,11 +59,17 @@ module.exports = (data) => {
       <${MaxWidth} class="prose">
         <h2>Aiemmat jaksot</h2>
 
-        <div
-          class="grid grid-cols-1 gap-8 divide-y-2 md:(grid-cols-2 divide-y-0)"
-        >
-          ${pastEpisodes.map((episode) => html`<${Episode} ...${episode} />`)}
-        </div>
+        ${pastEpisodes.length === 0
+          ? html`<p>Oletpa aikaisin täällä! Tule maanantaina takaisin. 😎</p>`
+          : html`
+              <div
+                class="grid grid-cols-1 gap-8 divide-y-2 md:(grid-cols-2 divide-y-0)"
+              >
+                ${pastEpisodes.map(
+                  (episode) => html`<${Episode} ...${episode} />`
+                )}
+              </div>
+            `}
       <//>
     <//>
   `
