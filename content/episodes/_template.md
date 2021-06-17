@@ -1,5 +1,6 @@
 ---
 title: 'Hello world'
+emoji: 💩
 recorded: 2021-06-01
 date: 2021-06-01 # Publish date
 description: |
