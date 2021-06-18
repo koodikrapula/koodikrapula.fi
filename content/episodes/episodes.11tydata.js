@@ -1,19 +1,26 @@
 const char = require('/data/char')
+const { isProdEnv, isScheduled } = require('/data/utils')
 
-function getAdjacentEpisode(episodes, currentUrl, offset) {
+const getAdjacentEpisode = (offset) => (data) => {
+  const { episodes } = data.collections
+  const { url: currentUrl } = data.page
+
   const currentIndex = episodes.findIndex(({ url }) => url === currentUrl)
   return episodes[currentIndex + offset]
 }
 
+const getPermalink = (data) =>
+  isProdEnv() && isScheduled(data) ? false : `/${data.page.fileSlug}/`
+
+const getTitle = (data) =>
+  `${data.page.fileSlug} ${char.ndash} ${data.title}${char.nbsp}${data.emoji}`
+
 module.exports = {
   layout: 'Episode',
   eleventyComputed: {
-    nextEpisode: (data) =>
-      getAdjacentEpisode(data.collections.episodes, data.page.url, -1),
-    permalink: (data) => `/${data.page.fileSlug}/`,
-    previousEpisode: (data) =>
-      getAdjacentEpisode(data.collections.episodes, data.page.url, +1),
-    title: (data) =>
-      `${data.page.fileSlug} ${char.ndash} ${data.title}${char.nbsp}${data.emoji}`,
+    nextEpisode: getAdjacentEpisode(-1),
+    permalink: getPermalink,
+    previousEpisode: getAdjacentEpisode(+1),
+    title: getTitle,
   },
 }
