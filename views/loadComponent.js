@@ -16,7 +16,7 @@
  * const Base = loadComponent('Base')
  *
  * // Basically the same as:
- * const Base = require('/views/components/Base')
+ * const Base = require('$/views/components/Base')
  * // ...but without cache
  */
 module.exports = function loadComponent(name) {

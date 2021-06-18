@@ -1,6 +1,6 @@
 const { html } = require('htm/preact')
 
-const char = require('/data/char')
+const char = require('$/data/char')
 const loadComponent = require('../loadComponent')
 
 const Link = loadComponent('Link')
