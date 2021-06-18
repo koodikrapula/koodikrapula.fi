@@ -1,12 +1,13 @@
 {
   "scripts": {
-    "build": "npm run clean && npx @11ty/eleventy",
+    "build": "npm run clean && cross-env NODE_ENV=production npx @11ty/eleventy",
     "clean": "rm -rf ./_site/",
-    "start": "npm run clean && npx @11ty/eleventy --serve"
+    "start": "npm run clean && cross-env NODE_ENV=development npx @11ty/eleventy --serve"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@heroicons/react": "^1.0.1",
+    "cross-env": "^7.0.3",
     "htm": "^3.0.4",
     "preact": "^10.5.13",
     "preact-render-to-string": "^5.1.19",
