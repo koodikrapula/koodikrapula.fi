@@ -1,4 +1,5 @@
 const char = require('/data/char')
+const { isProdEnv, isScheduled } = require('/data/utils')
 
 const getAdjacentEpisode = (offset) => (data) => {
   const { episodes } = data.collections
@@ -8,7 +9,8 @@ const getAdjacentEpisode = (offset) => (data) => {
   return episodes[currentIndex + offset]
 }
 
-const getPermalink = (data) => `/${data.page.fileSlug}/`
+const getPermalink = (data) =>
+  isProdEnv() && isScheduled(data) ? false : `/${data.page.fileSlug}/`
 
 const getTitle = (data) =>
   `${data.page.fileSlug} ${char.ndash} ${data.title}${char.nbsp}${data.emoji}`
