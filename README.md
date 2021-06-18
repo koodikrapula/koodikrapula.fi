@@ -16,6 +16,6 @@ and install the recommended extensions.
 If you get errors like "Cannot find module `'$/data/char'`,"
 re-run `npm install`.
 (The `postinstall` script will automatically setup [Basetag][basetag]
-for absolute import paths.)
+which adds support for absolute import paths.)
 
 [basetag]: https://github.com/janniks/basetag
