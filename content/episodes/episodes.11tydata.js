@@ -1,5 +1,5 @@
-const char = require('/data/char')
-const { isProdEnv, isScheduled } = require('/data/utils')
+const char = require('$/data/char')
+const { isProdEnv, isScheduled } = require('$/data/utils')
 
 const getAdjacentEpisode = (offset) => (data) => {
   const { episodes } = data.collections

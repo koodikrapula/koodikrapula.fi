@@ -1,5 +1,3 @@
-require('sexy-require')
-
 require('./patchPreact')
 
 const fs = require('fs')
