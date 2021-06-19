@@ -42,10 +42,19 @@ module.exports = (data) => {
           </div>
           <p>
             <em>
-              Soitin tulossa pian${char.trade}! Sitä ennen löydät äänitteen
-              Spotifystä ja Apple Podcastsista.
+              Soitin tulossa pian${char.trade}!
+              ${' Sitä ennen voit kuunnella podia mm. '}
+              <a href="https://open.spotify.com/show/1st4zWhHxzXn345vqdTfk8">
+                Spotifyssa
+              </a>
+              ${' ja '}
+              <a
+                href="https://podcasts.apple.com/us/podcast/koodikrapula/id1572320652"
+              >
+                Apple Podcastsissa
+              </a>
+              .
             </em>
-            <!-- TODO: Add links -->
           </p>
           <${Markdown} content=${content} />
         <//>
