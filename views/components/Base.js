@@ -15,7 +15,7 @@ const Header = ({ currentUrl }) => {
     <header>
       <${MaxWidth} as="nav" class="sm:(flex justify-between)">
         <${Link}
-          class="${linkClasses} inline-block my-4 font(semibold mono) text(2xl gray-800)"
+          class="${linkClasses} inline-block my-4 font(bold mono) text(2xl gray-800)"
           href="/"
         >
           Koodikrapula
