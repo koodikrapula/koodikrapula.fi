@@ -86,8 +86,7 @@ module.exports = ({
         src="/elbisualp/js/script.js"
       ></script>
 
-      <!-- The next script is required to track 404 pages.
-           https://plausible.io/docs/404-error-pages-tracking -->
+      <!-- Required for tracking 404 pages. https://plausible.io/docs/404-error-pages-tracking -->
       <!-- prettier-ignore -->
       <script>
         window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
