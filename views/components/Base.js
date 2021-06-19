@@ -70,7 +70,7 @@ module.exports = ({
       html`
         <meta
           name="description"
-          content=${(metaDescription || description).trim().replace('\n', ' ')}
+          content=${(metaDescription || description).trim().replace(/\n/g, ' ')}
         />
       `}
       <script async src="/assets/twind.js" type="module"></script>
