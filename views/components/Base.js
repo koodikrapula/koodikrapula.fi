@@ -79,18 +79,24 @@ module.exports = ({
       <script async src="/assets/twind.js" type="module"></script>
       <link rel="stylesheet" href="/assets/main.css" />
 
-      <script
-        data-api="/elbisualp/api/event"
-        data-domain="koodikrapula.fi"
-        defer
-        src="/elbisualp/js/script.js"
-      ></script>
+      <!-- The CONTEXT environment variable is Netlify's deploy context:
+           production, deploy-preview or branch-deploy.
+           https://docs.netlify.com/configure-builds/environment-variables/#build-metadata -->
+      ${process.env.CONTEXT === 'production' &&
+      html`
+        <script
+          data-api="/elbisualp/api/event"
+          data-domain="koodikrapula.fi"
+          defer
+          src="/elbisualp/js/script.js"
+        ></script>
 
-      <!-- Required for tracking 404 pages. https://plausible.io/docs/404-error-pages-tracking -->
-      <!-- prettier-ignore -->
-      <script>
-        window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
-      </script>
+        <!-- Required for tracking 404 pages. https://plausible.io/docs/404-error-pages-tracking -->
+        <!-- prettier-ignore -->
+        <script>
+          window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
+        </script>
+      `}
     </head>
 
     <body class="h-full overflow-y-scroll">
