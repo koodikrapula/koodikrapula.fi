@@ -79,7 +79,9 @@ module.exports = ({
       <script async src="/assets/twind.js" type="module"></script>
       <link rel="stylesheet" href="/assets/main.css" />
 
-      <!-- Netlify's build context; basically skip deploy previews -->
+      <!-- The CONTEXT environment variable is Netlify's deploy context:
+           production, deploy-preview or branch-deploy.
+           https://docs.netlify.com/configure-builds/environment-variables/#build-metadata -->
       ${process.env.CONTEXT === 'production' &&
       html`
         <script
