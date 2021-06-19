@@ -3,6 +3,7 @@ const { html } = require('htm/preact')
 const loadComponent = require('../loadComponent')
 
 const Base = loadComponent('Base')
+const Markdown = loadComponent('Markdown')
 const MaxWidth = loadComponent('MaxWidth')
 
 module.exports = (data) => {
@@ -18,7 +19,7 @@ module.exports = (data) => {
             ¯\\(ツ)/¯
           </span>
         </h1>
-        <div dangerouslySetInnerHTML=${{ __html: content }} />
+        <${Markdown} content=${content} />
       <//>
     <//>
   `

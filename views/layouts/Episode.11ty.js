@@ -6,6 +6,7 @@ const loadComponent = require('../loadComponent')
 const Base = loadComponent('Base')
 const EpisodeMeta = loadComponent('EpisodeMeta')
 const Link = loadComponent('Link')
+const Markdown = loadComponent('Markdown')
 const MaxWidth = loadComponent('MaxWidth')
 
 module.exports = (data) => {
@@ -40,7 +41,7 @@ module.exports = (data) => {
             </em>
             <!-- TODO: Add links -->
           </p>
-          <div dangerouslySetInnerHTML=${{ __html: content }} />
+          <${Markdown} content=${content} />
         <//>
       </main>
 
