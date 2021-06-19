@@ -21,5 +21,10 @@ Housteina toimii weljekset
 ja
 [Matias Kinnunen][mtsknn.fi].
 
+Palautteet, kysymykset ja sponssitarjoukset
+saa lähettää osoitteeseen
+[moi@koodikrapula.fi][email].
+
+[email]: mailto:moi@koodirapula.fi
 [hanki.dev]: https://hanki.dev/
 [mtsknn.fi]: https://mtsknn.fi/
