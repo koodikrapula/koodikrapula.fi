@@ -9,7 +9,7 @@ const Link = loadComponent('Link')
 const MaxWidth = loadComponent('MaxWidth')
 
 const LatestEpisode = ({
-  data: { description, recorded, title },
+  data: { description, duration, recorded, title },
   date,
   url,
 }) => html`
@@ -21,7 +21,12 @@ const LatestEpisode = ({
       <h3>
         <${Link} aria-label="Jakso ${title}" href=${url}>${title}<//>
       </h3>
-      <${EpisodeMeta} date=${date} large recorded=${recorded} />
+      <${EpisodeMeta}
+        date=${date}
+        duration=${duration}
+        large
+        recorded=${recorded}
+      />
       <p>${description}</p>
       <p>
         <${Link} href=${url}>Jaksomuikkarit ${char.rarr}<//>
@@ -31,12 +36,16 @@ const LatestEpisode = ({
   </article>
 `
 
-const Episode = ({ data: { description, recorded, title }, date, url }) => html`
+const Episode = ({
+  data: { description, duration, recorded, title },
+  date,
+  url,
+}) => html`
   <article aria-label=${`Jakso ${title}`} class="pt(8 md:0)">
     <h3 class="mt-0!">
       <${Link} aria-label="Jakso ${title}" href=${url}>${title}<//>
     </h3>
-    <${EpisodeMeta} date=${date} recorded=${recorded} />
+    <${EpisodeMeta} date=${date} duration=${duration} recorded=${recorded} />
     <p class="mb-0!">${description}</p>
   </article>
 `

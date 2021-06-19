@@ -13,6 +13,7 @@ module.exports = (data) => {
   const {
     date,
     description,
+    duration,
     content,
     nextEpisode,
     previousEpisode,
@@ -31,7 +32,12 @@ module.exports = (data) => {
         <${MaxWidth} as="article" class="prose mt-8">
           <h1>${title}</h1>
           <div class="prose-lg">
-            <${EpisodeMeta} date=${date} large recorded=${recorded} />
+            <${EpisodeMeta}
+              date=${date}
+              duration=${duration}
+              large
+              recorded=${recorded}
+            />
             <p>${description}</p>
           </div>
           <p>
