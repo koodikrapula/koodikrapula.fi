@@ -21,6 +21,9 @@ module.exports = (data) => {
         </h1>
         <${Markdown} content=${content} />
       <//>
+      <script>
+        plausible('404', { props: { path: document.location.pathname } })
+      </script>
     <//>
   `
 }
