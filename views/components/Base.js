@@ -1,4 +1,5 @@
 const { html } = require('htm/preact')
+const { tw } = require('twind')
 
 const char = require('$/data/char')
 const loadComponent = require('../loadComponent')
@@ -6,27 +7,32 @@ const loadComponent = require('../loadComponent')
 const Link = loadComponent('Link')
 const MaxWidth = loadComponent('MaxWidth')
 
-const Header = () => {
+const Header = ({ currentUrl }) => {
   const linkClasses = 'no-underline -mx-1 p-1 rounded hover:bg-gray-100'
-  const links = [
-    { href: '#', title: 'Info' },
-    { href: '#', title: 'Kysy kysymys!' },
-  ]
+  const links = [{ href: '/info/', title: 'Info' }]
 
   return html`
     <header>
-      <${MaxWidth} as="nav">
+      <${MaxWidth} as="nav" class="sm:(flex justify-between)">
         <${Link}
-          class="${linkClasses} inline-block my-4 font-mono text(2xl red-600)"
+          class="${linkClasses} inline-block my-4 font(bold mono) text(2xl gray-800)"
           href="/"
         >
-          Koodikrapula.fi
+          Koodikrapula
         <//>
-        <ul class="mb-6 space-x-6">
+        <ul class="mb-6 space-x-6 sm:mt-6">
           ${links.map(
             ({ href, title }) => html`
               <li class="inline">
-                <${Link} class=${linkClasses} href=${href}>${title}<//>
+                <${Link}
+                  class=${tw(
+                    linkClasses,
+                    currentUrl.startsWith(href) && 'font-bold'
+                  )}
+                  href=${href}
+                >
+                  ${title}
+                <//>
               </li>
             `
           )}
@@ -64,7 +70,7 @@ module.exports = ({
       html`
         <meta
           name="description"
-          content=${(metaDescription || description).trim().replace('\n', ' ')}
+          content=${(metaDescription || description).trim().replace(/\n/g, ' ')}
         />
       `}
       <script async src="/assets/twind.js" type="module"></script>
@@ -73,7 +79,7 @@ module.exports = ({
 
     <body class="h-full overflow-y-scroll">
       <div class="flex flex-col min-h-full px-6">
-        <${Header} />
+        <${Header} currentUrl=${page.url} />
         ${children}
         <${Footer} />
       </div>

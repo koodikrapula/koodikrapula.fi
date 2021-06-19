@@ -7,18 +7,13 @@ const Markdown = loadComponent('Markdown')
 const MaxWidth = loadComponent('MaxWidth')
 
 module.exports = (data) => {
-  const { content, title } = data
+  const { content, intro, title } = data
 
   return html`
     <${Base} ...${data}>
-      <${MaxWidth} as="main" class="prose mt-8">
-        <h1>
-          ${title}
-          <span> </span>
-          <span aria-hidden="true" class="text-gray-400 whitespace-nowrap">
-            ¯\\(ツ)/¯
-          </span>
-        </h1>
+      <${MaxWidth} as="main" class="mt-8 prose">
+        <h1>${title}</h1>
+        <p class="lead">${intro}</p>
         <${Markdown} content=${content} />
       <//>
     <//>
