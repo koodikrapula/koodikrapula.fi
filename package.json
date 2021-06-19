@@ -10,6 +10,7 @@
     "@heroicons/react": "^1.0.1",
     "basetag": "^2.0.1",
     "cross-env": "^7.0.3",
+    "dedent": "^0.7.0",
     "htm": "^3.0.4",
     "preact": "^10.5.13",
     "preact-render-to-string": "^5.1.19",
