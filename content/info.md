@@ -1,7 +1,7 @@
 ---
 layout: Info
 title: 'Info'
-intro: |
+description: |
   Keskustelua krapulaisesta koodista
   ja kaikesta siihen liittyvästä. 🤑🍻
   Viikoittain ilmestyvä podcast.
