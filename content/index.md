@@ -1,13 +1,10 @@
 ---
 layout: Home
-title: 'Koodikrapula'
 metaDescription: |
-  Not my monkey,
-  not my circus.
-  🐵
+  Keskustelua krapulaisesta koodista
+  ja kaikesta siihen liittyvästä. 🤑🍻
+  Viikoittain ilmestyvä podcast.
 
-# The meta title has to be defined here
-# so that we can use the `char.js` data file
 eleventyComputed:
-  metaTitle: 'Koodikrapula {{ char.ndash }} Podcast koodista ja krapulasta'
+  title: 'Koodikrapula {{ char.ndash }} Keskustelua krapulaisesta koodista'
 ---
