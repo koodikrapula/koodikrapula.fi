@@ -66,6 +66,8 @@ module.exports = ({
         ${(metaTitle || title).trim()}
         ${page.url !== '/' && ` ${char.ndash} Koodikrapula`}
       </title>
+      <link rel="canonical" href="https://koodikrapula.fi${page.url}" />
+
       ${(metaDescription || description) &&
       html`
         <meta
@@ -73,6 +75,7 @@ module.exports = ({
           content=${(metaDescription || description).trim().replace(/\n/g, ' ')}
         />
       `}
+
       <script async src="/assets/twind.js" type="module"></script>
       <link rel="stylesheet" href="/assets/main.css" />
     </head>
