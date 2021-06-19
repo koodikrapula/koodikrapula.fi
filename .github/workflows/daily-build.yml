@@ -1,0 +1,17 @@
+name: Daily Netlify build trigger
+
+on:
+  schedule:
+    # Runs at 03:00 AM UTC every day -> 06:00 AM Finnish time.
+    # TODO: Should be at 02:00 AM during winter
+    - cron: '0 3 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl request to Netlify's build hook
+        env:
+          NETLIFY_DAILY_BUILD_HOOK: ${{ secrets.NETLIFY_DAILY_BUILD_HOOK }}
+        run: |
+          curl -X POST -d {} "$NETLIFY_DAILY_BUILD_HOOK"
