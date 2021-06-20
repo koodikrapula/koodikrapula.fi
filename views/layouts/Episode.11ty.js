@@ -1,13 +1,11 @@
 const { html } = require('htm/preact')
 
 const char = require('$/data/char')
-const loadComponent = require('../loadComponent')
-
-const Base = loadComponent('Base')
-const EpisodeMeta = loadComponent('EpisodeMeta')
-const Link = loadComponent('Link')
-const Markdown = loadComponent('Markdown')
-const MaxWidth = loadComponent('MaxWidth')
+const Base = require('../components/Base')
+const EpisodeMeta = require('../components/EpisodeMeta')
+const Link = require('../components/Link')
+const Markdown = require('../components/Markdown')
+const MaxWidth = require('../components/MaxWidth')
 
 module.exports = (data) => {
   const {

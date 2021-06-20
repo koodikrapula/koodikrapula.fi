@@ -1,6 +1,7 @@
 require('./patchPreact')
 
 const fs = require('fs')
+const path = require('path')
 const { isValidElement } = require('preact')
 const { render } = require('preact-render-to-string')
 
@@ -58,6 +59,8 @@ module.exports = (config) => {
   // Defaults to true in Eleventy 1.0
   config.setDataDeepMerge(true)
 
+  disableViewsCache(config)
+
   return {
     dir: {
       input: 'content',
@@ -67,4 +70,35 @@ module.exports = (config) => {
       includes: '../views/layouts',
     },
   }
+}
+
+/**
+ * Disable Node.js's `require()` cache from the files in the `views` folder.
+ *
+ * Does not actually _disable_ the cache,
+ * but automatically clears the cache
+ * after any of the files are modified.
+ * So practically disables it.
+ *
+ * Needed because Node.js aggressively caches `require()`'d files.
+ * Otherwise modifying component files might not take effect.
+ * Dunno where the problem actually is: in Node.js, Browsersync or 11ty.
+ */
+function disableViewsCache(config) {
+  const viewsFolder = path.resolve('./views/')
+
+  config.on('beforeWatch', (changedFiles) => {
+    const relativePaths = changedFiles.map(path.normalize)
+
+    if (!relativePaths.find((file) => file.startsWith(`views${path.sep}`))) {
+      // No files were modified under the `views` folder
+      // -> no need to clear the cache
+      return
+    }
+
+    Object.keys(require.cache).forEach(
+      (cachePath) =>
+        cachePath.startsWith(viewsFolder) && delete require.cache[cachePath]
+    )
+  })
 }
