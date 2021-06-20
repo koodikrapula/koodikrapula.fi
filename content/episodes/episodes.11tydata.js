@@ -14,12 +14,17 @@ const previousEpisode = (data) => adjacentEpisode(data, +1)
 const permalink = (data) =>
   isProdEnv() && isScheduled(data) ? false : `/${data.page.fileSlug}/`
 
+function eleventyExcludeFromCollections(data) {
+  return permalink(data) === false
+}
+
 const title = (data) =>
   `${data.page.fileSlug} ${char.ndash} ${data.title}${char.nbsp}${data.emoji}`
 
 module.exports = {
   layout: 'Episode',
   eleventyComputed: {
+    eleventyExcludeFromCollections,
     nextEpisode,
     permalink,
     previousEpisode,
