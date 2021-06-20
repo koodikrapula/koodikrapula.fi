@@ -2,10 +2,8 @@ const { html } = require('htm/preact')
 const { tw } = require('twind')
 
 const char = require('$/data/char')
-const loadComponent = require('../loadComponent')
-
-const Link = loadComponent('Link')
-const MaxWidth = loadComponent('MaxWidth')
+const Link = require('./Link')
+const MaxWidth = require('./MaxWidth')
 
 const Header = ({ currentUrl }) => {
   const linkClasses = 'no-underline -mx-1 p-1 rounded hover:bg-gray-100'

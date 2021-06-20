@@ -1,12 +1,10 @@
 const { html } = require('htm/preact')
 
 const char = require('$/data/char')
-const loadComponent = require('../loadComponent')
-
-const Base = loadComponent('Base')
-const EpisodeMeta = loadComponent('EpisodeMeta')
-const Link = loadComponent('Link')
-const MaxWidth = loadComponent('MaxWidth')
+const Base = require('../components/Base')
+const EpisodeMeta = require('../components/EpisodeMeta')
+const Link = require('../components/Link')
+const MaxWidth = require('../components/MaxWidth')
 
 const LatestEpisode = ({
   data: { description, duration, recorded, title },

@@ -1,10 +1,8 @@
 const { html } = require('htm/preact')
 
-const loadComponent = require('../loadComponent')
-
-const Base = loadComponent('Base')
-const Markdown = loadComponent('Markdown')
-const MaxWidth = loadComponent('MaxWidth')
+const Base = require('../components/Base')
+const Markdown = require('../components/Markdown')
+const MaxWidth = require('../components/MaxWidth')
 
 module.exports = (data) => {
   const { content, description, title } = data
