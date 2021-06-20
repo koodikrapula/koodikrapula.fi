@@ -27,21 +27,6 @@ module.exports = (config) => {
 }
 
 /**
- * Alias React to Preact.
- * Needed for 3rd party React libraries to work properly,
- * e.g. `@heroicons/react`.
- *
- * Code taken from here and simplified:
- * https://preactjs.com/guide/v8/switching-to-preact/#aliasing-in-node-using-module-alias
- * The page is about Preact v8, but seems to work with v10 too.
- * The v10 docs are missing similar instructions for some reason.
- */
-function patchPreact() {
-  // eslint-disable-next-line no-underscore-dangle
-  module.constructor._cache[require.resolve('react')].exports = PreactCompat
-}
-
-/**
  * Disable Node.js's `require()` cache from the files in the `views` folder.
  *
  * Does not actually _disable_ the cache,
@@ -73,6 +58,21 @@ function disableViewsCache(config) {
         cachePath.startsWith(viewsFolder) && delete require.cache[cachePath]
     )
   })
+}
+
+/**
+ * Alias React to Preact.
+ * Needed for 3rd party React libraries to work properly,
+ * e.g. `@heroicons/react`.
+ *
+ * Code taken from here and simplified:
+ * https://preactjs.com/guide/v8/switching-to-preact/#aliasing-in-node-using-module-alias
+ * The page is about Preact v8, but seems to work with v10 too.
+ * The v10 docs are missing similar instructions for some reason.
+ */
+function patchPreact() {
+  // eslint-disable-next-line no-underscore-dangle
+  module.constructor._cache[require.resolve('react')].exports = PreactCompat
 }
 
 /**
