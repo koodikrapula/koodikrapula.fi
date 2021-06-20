@@ -9,18 +9,18 @@ const getAdjacentEpisode = (offset) => (data) => {
   return episodes[currentIndex + offset]
 }
 
-const getPermalink = (data) =>
+const permalink = (data) =>
   isProdEnv() && isScheduled(data) ? false : `/${data.page.fileSlug}/`
 
-const getTitle = (data) =>
+const title = (data) =>
   `${data.page.fileSlug} ${char.ndash} ${data.title}${char.nbsp}${data.emoji}`
 
 module.exports = {
   layout: 'Episode',
   eleventyComputed: {
     nextEpisode: getAdjacentEpisode(-1),
-    permalink: getPermalink,
+    permalink,
     previousEpisode: getAdjacentEpisode(+1),
-    title: getTitle,
+    title,
   },
 }
