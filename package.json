@@ -8,6 +8,8 @@
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@heroicons/react": "^1.0.1",
+    "@twind/content": "^0.1.0",
+    "@twind/typography": "^0.0.2",
     "basetag": "^2.0.1",
     "cross-env": "^7.0.3",
     "dedent": "^0.7.0",
