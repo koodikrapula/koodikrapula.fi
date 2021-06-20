@@ -52,6 +52,9 @@ function patchPreact() {
  * Needed because Node.js aggressively caches `require()`'d files.
  * Otherwise modifying component files might not take effect.
  * Dunno where the problem actually is: in Node.js, Browsersync or 11ty.
+ *
+ * @param {object} config
+ * 11ty's config object.
  */
 function disableViewsCache(config) {
   const viewsFolder = path.resolve('./views/')
@@ -78,6 +81,9 @@ function disableViewsCache(config) {
  *
  * NOTE: The watch mode must be restarted after modifying these.
  * (This applies to all 11ty config files.)
+ *
+ * @returns {VirtualSheet}
+ * Twind's virtual sheet.
  */
 function setupTwind() {
   const sheet = virtualSheet()
