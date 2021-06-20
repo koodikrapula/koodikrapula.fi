@@ -54,9 +54,7 @@ module.exports = ({
   page,
   title,
 }) => html`
-  <!-- The 'hidden' attribute prevents FOUC (flash of unstyled content)
-       and is removed by Twind once it has generated all styles. -->
-  <html class="h-full" hidden lang="fi">
+  <html class="h-full" lang="fi">
     <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -74,8 +72,8 @@ module.exports = ({
         />
       `}
 
-      <script async src="/assets/twind.js" type="module"></script>
-      <link rel="stylesheet" href="/assets/main.css" />
+      <!-- Replaced with Twind-generated styles -->
+      <style id="__twind"></style>
 
       <!-- The CONTEXT environment variable is Netlify's deploy context:
            production, deploy-preview or branch-deploy.
