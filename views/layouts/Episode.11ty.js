@@ -1,11 +1,11 @@
 const { html } = require('htm/preact')
 
-const char = require('$/data/char')
 const Base = require('../components/Base')
 const EpisodeMeta = require('../components/EpisodeMeta')
 const Link = require('../components/Link')
 const Markdown = require('../components/Markdown')
 const MaxWidth = require('../components/MaxWidth')
+const Player = require('../components/Player')
 
 module.exports = (data) => {
   const {
@@ -38,22 +38,7 @@ module.exports = (data) => {
             />
             <p>${description}</p>
           </div>
-          <p>
-            <em>
-              Soitin tulossa pian${char.trade}!
-              ${' Sitä ennen voit kuunnella podia mm. '}
-              <a href="https://open.spotify.com/show/1st4zWhHxzXn345vqdTfk8">
-                Spotifyssa
-              </a>
-              ${' ja '}
-              <a
-                href="https://podcasts.apple.com/us/podcast/koodikrapula/id1572320652"
-              >
-                Apple Podcastsissa
-              </a>
-              .
-            </em>
-          </p>
+          <aside><${Player} /></aside>
           <${Markdown} content=${content} />
         <//>
       </main>

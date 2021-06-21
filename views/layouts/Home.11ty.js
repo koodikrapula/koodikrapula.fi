@@ -5,6 +5,7 @@ const Base = require('../components/Base')
 const EpisodeMeta = require('../components/EpisodeMeta')
 const Link = require('../components/Link')
 const MaxWidth = require('../components/MaxWidth')
+const Player = require('../components/Player')
 
 const LatestEpisode = ({
   data: { description, duration, recorded, title },
@@ -26,10 +27,10 @@ const LatestEpisode = ({
         recorded=${recorded}
       />
       <p>${description}</p>
+      <aside><${Player} /></aside>
       <p>
         <${Link} href=${url}>Jaksomuikkarit ${char.rarr}<//>
       </p>
-      <!-- Player here -->
     <//>
   </article>
 `
