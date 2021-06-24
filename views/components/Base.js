@@ -25,7 +25,7 @@ const Header = ({ currentUrl }) => {
                 <${Link}
                   class=${tw(
                     linkClasses,
-                    currentUrl.startsWith?.(href) && 'font-bold'
+                    currentUrl && currentUrl.startsWith(href) && 'font-bold'
                   )}
                   href=${href}
                 >
