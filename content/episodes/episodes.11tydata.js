@@ -1,5 +1,5 @@
-const char = require('$/data/char')
-const { isProdEnv, isScheduled } = require('$/data/utils')
+import char from '$/data/char'
+import { isProdEnv, isScheduled } from '$/data/utils'
 
 const adjacentEpisode = (data, offset) => {
   const { episodes } = data.collections
@@ -21,7 +21,7 @@ function eleventyExcludeFromCollections(data) {
 const title = (data) =>
   `${data.page.fileSlug} ${char.ndash} ${data.title}${char.nbsp}${data.emoji}`
 
-module.exports = {
+export default {
   layout: 'Episode',
   eleventyComputed: {
     eleventyExcludeFromCollections,

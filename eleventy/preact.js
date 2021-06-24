@@ -1,20 +1,15 @@
-require('react')
+import 'react'
 
-const { content } = require('@twind/content')
-const { default: typography } = require('@twind/typography')
-const path = require('path')
-const { isValidElement, VNode } = require('preact')
-const PreactCompat = require('preact/compat')
-const { render } = require('preact-render-to-string')
-const { apply, setup } = require('twind')
-const {
-  getStyleTag,
-  shim,
-  virtualSheet,
-  VirtualSheet,
-} = require('twind/shim/server')
+import { content } from '@twind/content'
+import typography from '@twind/typography'
+import path from 'path'
+import { isValidElement } from 'preact'
+import PreactCompat from 'preact/compat'
+import { render } from 'preact-render-to-string'
+import { apply, setup } from 'twind'
+import { getStyleTag, shim, virtualSheet } from 'twind/shim/server'
 
-module.exports = (config) => {
+export default (config) => {
   disableViewsCache(config)
   patchPreact()
   const sheet = setupTwind()

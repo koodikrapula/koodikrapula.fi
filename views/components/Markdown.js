@@ -1,5 +1,5 @@
-const { html } = require('htm/preact')
+import { html } from 'htm/preact'
 
-module.exports = ({ content }) => html`
+export default ({ content }) => html`
   <div dangerouslySetInnerHTML=${{ __html: content }} />
 `
