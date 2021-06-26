@@ -50,7 +50,7 @@ function disableComponentCache(config) {
     const changedFilesRelativePaths = changedFiles.map(path.normalize)
     const componentsFolderRelativePath = componentsFolderPath
       .slice(2) // Omit `./` from the start
-      .replace(/\//g, path.sep)
+      .replaceAll('/', path.sep)
 
     if (
       !changedFilesRelativePaths.some((changedFilePath) =>
