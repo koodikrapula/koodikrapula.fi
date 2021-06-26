@@ -1,4 +1,16 @@
 /**
+ * Checks whether the current Netlify deploy context is `production`.
+ * Returns `false` in non-Netlify environments, e.g. localhost.
+ *
+ * Other possible contexts are `deploy-preview` and `branch-deploy`.
+ *
+ * @see {@link https://docs.netlify.com/configure-builds/environment-variables/#build-metadata}
+ *
+ * @returns {boolean}
+ */
+export const isNetlifyProdEnv = () => process.env.CONTEXT === 'production'
+
+/**
  * Checks whether the current build is a production build.
  *
  * @returns {boolean}

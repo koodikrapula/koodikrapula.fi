@@ -2,6 +2,7 @@ import { html } from 'htm/preact'
 import { tw } from 'twind'
 
 import char from '../data/char'
+import { isNetlifyProdEnv } from '../data/utils'
 import Link from './Link'
 import MaxWidth from './MaxWidth'
 
@@ -75,10 +76,7 @@ export default ({
       <!-- Replaced with Twind-generated styles -->
       <style id="__twind"></style>
 
-      <!-- The CONTEXT environment variable is Netlify's deploy context:
-           production, deploy-preview or branch-deploy.
-           https://docs.netlify.com/configure-builds/environment-variables/#build-metadata -->
-      ${process.env.CONTEXT === 'production' &&
+      ${isNetlifyProdEnv() &&
       html`
         <script
           data-api="/elbisualp/api/event"
