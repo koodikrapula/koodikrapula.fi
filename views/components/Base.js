@@ -1,9 +1,9 @@
-const { html } = require('htm/preact')
-const { tw } = require('twind')
+import { html } from 'htm/preact'
+import { tw } from 'twind'
 
-const char = require('$/data/char')
-const Link = require('./Link')
-const MaxWidth = require('./MaxWidth')
+import char from '$/data/char'
+import Link from './Link'
+import MaxWidth from './MaxWidth'
 
 const Header = ({ currentUrl }) => {
   const linkClasses = 'no-underline -mx-1 p-1 rounded hover:bg-gray-100'
@@ -25,7 +25,7 @@ const Header = ({ currentUrl }) => {
                 <${Link}
                   class=${tw(
                     linkClasses,
-                    currentUrl.startsWith?.(href) && 'font-bold'
+                    currentUrl && currentUrl.startsWith(href) && 'font-bold'
                   )}
                   href=${href}
                 >
@@ -46,7 +46,7 @@ const Footer = () => html`
   </footer>
 `
 
-module.exports = ({
+export default ({
   children,
   description,
   metaDescription,

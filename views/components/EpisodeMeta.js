@@ -1,9 +1,9 @@
-const {
+import {
   CalendarIcon,
   ClockIcon,
   MicrophoneIcon,
-} = require('@heroicons/react/outline')
-const { html } = require('htm/preact')
+} from '@heroicons/react/outline'
+import { html } from 'htm/preact'
 
 const dateFormat = {
   human: (date) => date.toLocaleString('fi', { dateStyle: 'short' }),
@@ -50,7 +50,7 @@ const durationFormat = {
   },
 }
 
-module.exports = ({ date, duration, large = false, recorded }) => {
+export default ({ date, duration, large = false, recorded }) => {
   const iconSize = large ? 5 : 4
   const iconProps = {
     'aria-hidden': true,

@@ -1,8 +1,8 @@
-const { html } = require('htm/preact')
+import { html } from 'htm/preact'
 
-const char = require('$/data/char')
+import char from '$/data/char'
 
-module.exports = () => html`
+export default () => html`
   <p class="italic">
     Soitin tulossa pian${char.trade}! Sitä ennen voit kuunnella podia mm.${' '}
     <a href="https://open.spotify.com/show/1st4zWhHxzXn345vqdTfk8">

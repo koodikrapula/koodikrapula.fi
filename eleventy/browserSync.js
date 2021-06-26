@@ -1,6 +1,6 @@
-const fs = require('fs')
+import fs from 'fs'
 
-module.exports = (config) => {
+export default (config) => {
   // See https://browsersync.io/docs/options for all options
   config.setBrowserSyncConfig({
     callbacks: {

@@ -1,13 +1,13 @@
-const { html } = require('htm/preact')
+import { html } from 'htm/preact'
 
-const Base = require('../components/Base')
-const EpisodeMeta = require('../components/EpisodeMeta')
-const Link = require('../components/Link')
-const Markdown = require('../components/Markdown')
-const MaxWidth = require('../components/MaxWidth')
-const Player = require('../components/Player')
+import Base from '../components/Base'
+import EpisodeMeta from '../components/EpisodeMeta'
+import Link from '../components/Link'
+import Markdown from '../components/Markdown'
+import MaxWidth from '../components/MaxWidth'
+import Player from '../components/Player'
 
-module.exports = (data) => {
+export default (data) => {
   const {
     date,
     description,

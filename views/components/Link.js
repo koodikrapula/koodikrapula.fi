@@ -1,7 +1,7 @@
-const { html } = require('htm/preact')
-const { apply, tw } = require('twind')
+import { html } from 'htm/preact'
+import { apply, tw } from 'twind'
 
-module.exports = ({ children, class: classes = '', href, ...rest }) => html`
+export default ({ children, class: classes = '', href, ...rest }) => html`
   <a
     class=${tw(classes, apply('underline text-red(hover:600 active:700)'))}
     href=${href}

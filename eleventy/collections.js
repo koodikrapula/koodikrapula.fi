@@ -1,6 +1,6 @@
-const { isProdEnv, isScheduled } = require('../data/utils')
+import { isProdEnv, isScheduled } from '../data/utils'
 
-module.exports = (config) => {
+export default (config) => {
   config.addCollection('episodes', (collectionApi) =>
     collectionApi
       .getFilteredByGlob('./content/episodes/*.md')

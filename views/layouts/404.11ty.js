@@ -1,10 +1,10 @@
-const { html } = require('htm/preact')
+import { html } from 'htm/preact'
 
-const Base = require('../components/Base')
-const Markdown = require('../components/Markdown')
-const MaxWidth = require('../components/MaxWidth')
+import Base from '../components/Base'
+import Markdown from '../components/Markdown'
+import MaxWidth from '../components/MaxWidth'
 
-module.exports = (data) => {
+export default (data) => {
   const { content, title } = data
 
   return html`

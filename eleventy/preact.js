@@ -1,20 +1,15 @@
-require('react')
+import 'react'
 
-const { content } = require('@twind/content')
-const { default: typography } = require('@twind/typography')
-const path = require('path')
-const { isValidElement, VNode } = require('preact')
-const PreactCompat = require('preact/compat')
-const { render } = require('preact-render-to-string')
-const { apply, setup } = require('twind')
-const {
-  getStyleTag,
-  shim,
-  virtualSheet,
-  VirtualSheet,
-} = require('twind/shim/server')
+import { content } from '@twind/content'
+import typography from '@twind/typography'
+import path from 'path'
+import { isValidElement } from 'preact'
+import PreactCompat from 'preact/compat'
+import { render } from 'preact-render-to-string'
+import { apply, setup } from 'twind'
+import { getStyleTag, shim, virtualSheet } from 'twind/shim/server'
 
-module.exports = (config) => {
+export default (config) => {
   disableViewsCache(config)
   patchPreact()
   const sheet = setupTwind()
@@ -82,7 +77,7 @@ function patchPreact() {
  * NOTE: The watch mode must be restarted after modifying these.
  * (This applies to all 11ty config files.)
  *
- * @returns {VirtualSheet}
+ * @returns {import('twind/shim/server').VirtualSheet}
  * Twind's virtual sheet.
  */
 function setupTwind() {
@@ -121,11 +116,11 @@ function setupTwind() {
  * Convert `htm` to HTML
  * and generate styles using Twind.
  *
- * @param {VNode<{}>} content
+ * @param {import('preact').VNode<{}>} content
  * The layout's contents,
  * so in this case a Preact VNode.
  *
- * @param {VirtualSheet} sheet
+ * @param {import('twind/shim/server').VirtualSheet} sheet
  * Twind's virtual sheet.
  *
  * @returns {string}

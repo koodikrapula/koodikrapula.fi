@@ -1,6 +1,6 @@
-const dedent = require('dedent')
+import dedent from 'dedent'
 
-module.exports = class {
+export default class {
   data() {
     return {
       eleventyExcludeFromCollections: true,
