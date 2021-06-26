@@ -1,5 +1,5 @@
 import char from '../../js/data/char'
-import { isProdEnv, isScheduled } from '../../js/data/utils'
+import { isProdBuild, isScheduled } from '../../js/data/utils'
 
 const adjacentEpisode = (data, offset) => {
   const { episodes } = data.collections
@@ -12,7 +12,7 @@ const nextEpisode = (data) => adjacentEpisode(data, -1)
 const previousEpisode = (data) => adjacentEpisode(data, +1)
 
 const permalink = (data) =>
-  isProdEnv() && isScheduled(data) ? false : `/${data.page.fileSlug}/`
+  isProdBuild() && isScheduled(data) ? false : `/${data.page.fileSlug}/`
 
 const eleventyExcludeFromCollections = (data) => permalink(data) === false
 

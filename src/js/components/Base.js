@@ -2,6 +2,7 @@ import { html } from 'htm/preact'
 import { tw } from 'twind'
 
 import char from '../data/char'
+import { isNetlifyProdEnv } from '../data/utils'
 import Link from './Link'
 import MaxWidth from './MaxWidth'
 
@@ -47,6 +48,7 @@ const Footer = () => html`
 `
 
 export default ({
+  appendToBody,
   children,
   description,
   metaDescription,
@@ -75,10 +77,7 @@ export default ({
       <!-- Replaced with Twind-generated styles -->
       <style id="__twind"></style>
 
-      <!-- The CONTEXT environment variable is Netlify's deploy context:
-           production, deploy-preview or branch-deploy.
-           https://docs.netlify.com/configure-builds/environment-variables/#build-metadata -->
-      ${process.env.CONTEXT === 'production' &&
+      ${isNetlifyProdEnv() &&
       html`
         <script
           data-api="/elbisualp/api/event"
@@ -86,12 +85,6 @@ export default ({
           defer
           src="/elbisualp/js/script.js"
         ></script>
-
-        <!-- Required for tracking 404 pages. https://plausible.io/docs/404-error-pages-tracking -->
-        <!-- prettier-ignore -->
-        <script>
-          window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
-        </script>
       `}
     </head>
 
@@ -101,6 +94,8 @@ export default ({
         ${children}
         <${Footer} />
       </div>
+
+      ${appendToBody}
     </body>
   </html>
 `
