@@ -4,7 +4,7 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['airbnb-base', 'prettier'],
+  extends: ['airbnb-base', 'plugin:eslint-comments/recommended', 'prettier'],
   ignorePatterns: ['!.eleventy.js'],
   overrides: [
     {
@@ -20,6 +20,8 @@ module.exports = {
   },
   plugins: ['simple-import-sort', 'unicorn'],
   rules: {
+    /* BUILT-IN RULES */
+
     // Allow function hoisting
     // because sometimes it makes things clearer
     'no-use-before-define': [
@@ -31,13 +33,21 @@ module.exports = {
     // because sometimes it's clearer than template strings
     'prefer-template': 'off',
 
-    'simple-import-sort/imports': 'error',
-
     /* PRETTIER
      *
      * These Airbnb rules need to be re-defined
      * because the Prettier plugin's rules override them
      */
+
+    /* PLUGINS */
+
+    // This is also reported by Unicorn,
+    // and Unicorn's error message is clearer
+    'eslint-comments/no-unlimited-disable': 'off',
+
+    'eslint-comments/no-unused-disable': 'error',
+
+    'simple-import-sort/imports': 'error',
 
     quotes: ['error', 'single', { avoidEscape: true }],
 
