@@ -77,7 +77,7 @@ function patchPreact() {
  * NOTE: The watch mode must be restarted after modifying these.
  * (This applies to all 11ty config files.)
  *
- * @returns {VirtualSheet}
+ * @returns {import('twind/shim/server').VirtualSheet}
  * Twind's virtual sheet.
  */
 function setupTwind() {
@@ -116,11 +116,11 @@ function setupTwind() {
  * Convert `htm` to HTML
  * and generate styles using Twind.
  *
- * @param {VNode<{}>} content
+ * @param {import('preact').VNode<{}>} content
  * The layout's contents,
  * so in this case a Preact VNode.
  *
- * @param {VirtualSheet} sheet
+ * @param {import('twind/shim/server').VirtualSheet} sheet
  * Twind's virtual sheet.
  *
  * @returns {string}
