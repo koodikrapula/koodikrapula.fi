@@ -7,7 +7,9 @@ import { html } from 'htm/preact'
 
 const dateFormat = {
   human: (date) => date.toLocaleString('fi', { dateStyle: 'short' }),
-  robot: (date) => `${date.toISOString().split('T')[0]}T06:00:00+03:00`, // TODO: Daylight saving time?
+
+  // TODO [2021-10-01]: Daylight saving time?
+  robot: (date) => `${date.toISOString().split('T')[0]}T06:00:00+03:00`,
 }
 
 /**

@@ -53,7 +53,7 @@ function disableComponentCache(config) {
       .replace(/\//g, path.sep)
 
     if (
-      !changedFilesRelativePaths.find((changedFilePath) =>
+      !changedFilesRelativePaths.some((changedFilePath) =>
         changedFilePath.startsWith(componentsFolderRelativePath)
       )
     ) {
@@ -62,11 +62,13 @@ function disableComponentCache(config) {
       return
     }
 
+    /* eslint-disable unicorn/prefer-module */
     Object.keys(require.cache).forEach(
       (cachePath) =>
         cachePath.startsWith(componentsFolderFullPath) &&
         delete require.cache[cachePath]
     )
+    /* eslint-enable unicorn/prefer-module */
   })
 }
 
@@ -81,7 +83,7 @@ function disableComponentCache(config) {
  * The v10 docs are missing similar instructions for some reason.
  */
 function patchPreact() {
-  // eslint-disable-next-line no-underscore-dangle
+  // eslint-disable-next-line no-underscore-dangle, unicorn/prefer-module
   module.constructor._cache[require.resolve('react')].exports = PreactCompat
 }
 
