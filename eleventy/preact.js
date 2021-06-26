@@ -1,23 +1,23 @@
 import 'react'
 
-import { content } from '@twind/content'
-import typography from '@twind/typography'
 import path from 'path'
 import { isValidElement } from 'preact'
 import PreactCompat from 'preact/compat'
 import { render } from 'preact-render-to-string'
-import { apply, setup } from 'twind'
-import { getStyleTag, shim, virtualSheet } from 'twind/shim/server'
+import { setup as setupTwind } from 'twind'
+import { getStyleTag, shim } from 'twind/shim/server'
+
+import twindConfig, { sheet } from '../twind.config'
 
 const componentsFolderPath = './src/js/components/'
 
 export default (config) => {
   disableComponentCache(config)
   patchPreact()
-  const sheet = setupTwind()
+  setupTwind(twindConfig)
 
   config.addTransform('preactLayouts', (content) =>
-    isValidElement(content) ? transformPreactLayout(content, sheet) : content
+    isValidElement(content) ? transformPreactLayout(content) : content
   )
 
   config.addWatchTarget(componentsFolderPath)
@@ -86,62 +86,17 @@ function patchPreact() {
 }
 
 /**
- * Setup Twind (set base styles and configure plugins)
- * and return a virtual sheet for SSR.
- *
- * NOTE: The watch mode must be restarted after modifying these.
- * (This applies to all 11ty config files.)
- *
- * @returns {import('twind/shim/server').VirtualSheet}
- * Twind's virtual sheet.
- */
-function setupTwind() {
-  const sheet = virtualSheet()
-
-  setup({
-    plugins: {
-      ...typography(),
-    },
-    preflight: {
-      // Chrome stupidly hides text underlines behind the bg color,
-      // so the color's opacity is reduced
-      // to make underlines at least somewhat visible
-      '::selection': apply('bg-yellow-300 bg-opacity-50'),
-
-      // Prose styles need to be declared here
-      // because of these issues:
-      // - https://github.com/tw-in-js/typography/issues/1
-      // - https://github.com/tw-in-js/typography/issues/3
-      '.prose.prose a': apply('font-normal'),
-      '.prose a:hover': apply('text-red-600'),
-      '.prose a:active': apply('text-red-700'),
-      '.prose ol > li, .prose ul > li': apply('relative'),
-      '.prose ol > li::before, .prose ul > li::before': apply(
-        content('""'),
-        'absolute bg-gray-300 rounded-full'
-      ),
-    },
-    sheet,
-  })
-
-  return sheet
-}
-
-/**
  * Convert `htm` to HTML
  * and generate styles using Twind.
  *
  * @param {import('preact').VNode<{}>} content
- * The layout's contents,
+ * The contents of an 11ty content file,
  * so in this case a Preact VNode.
- *
- * @param {import('twind/shim/server').VirtualSheet} sheet
- * Twind's virtual sheet.
  *
  * @returns {string}
  * Final HTML.
  */
-function transformPreactLayout(content, sheet) {
+function transformPreactLayout(content) {
   sheet.reset()
   const html = `<!DOCTYPE html>${render(content)}`
   const htmlWithProperClasses = shim(html)
