@@ -48,6 +48,7 @@ const Footer = () => html`
 `
 
 export default ({
+  appendToBody,
   children,
   description,
   metaDescription,
@@ -84,12 +85,6 @@ export default ({
           defer
           src="/elbisualp/js/script.js"
         ></script>
-
-        <!-- Required for tracking 404 pages. https://plausible.io/docs/404-error-pages-tracking -->
-        <!-- prettier-ignore -->
-        <script>
-          window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
-        </script>
       `}
     </head>
 
@@ -99,6 +94,8 @@ export default ({
         ${children}
         <${Footer} />
       </div>
+
+      ${appendToBody}
     </body>
   </html>
 `
