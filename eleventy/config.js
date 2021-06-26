@@ -7,8 +7,6 @@ export default (config) => {
   setupCollections(config)
   setupPreact(config)
 
-  config.addPassthroughCopy('./assets')
-
   // Defaults to true in Eleventy 1.0
   config.setDataDeepMerge(true)
 
