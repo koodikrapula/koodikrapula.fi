@@ -4,7 +4,14 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['airbnb-base', 'plugin:eslint-comments/recommended', 'prettier'],
+  extends: [
+    'airbnb-base',
+    'plugin:eslint-comments/recommended',
+    'plugin:sonarjs/recommended',
+
+    // This should probably come last
+    'prettier',
+  ],
   ignorePatterns: ['!.eleventy.js'],
   overrides: [
     {
@@ -18,7 +25,7 @@ module.exports = {
     ecmaVersion: 2021,
     sourceType: 'module',
   },
-  plugins: ['simple-import-sort', 'unicorn'],
+  plugins: ['simple-import-sort', 'sonarjs', 'unicorn'],
   rules: {
     /* BUILT-IN RULES */
 
