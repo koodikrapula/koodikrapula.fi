@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs'
+import fs from 'fs'
 
 export default (config) => {
   // See https://browsersync.io/docs/options for all options
@@ -8,7 +8,7 @@ export default (config) => {
         // Provides the 404 content without redirect. Original source:
         // https://github.com/11ty/eleventy-base-blog/blob/v5.0.2/.eleventy.js#L56-L64
         browserSync.addMiddleware('*', (req, res) => {
-          const notFoundContent = readFileSync('./_site/404.html')
+          const notFoundContent = fs.readFileSync('./_site/404.html')
           res.write(notFoundContent)
           res.end()
         })
