@@ -1,6 +1,6 @@
 import { html } from 'htm/preact'
 
-import char from '$/data/char'
+import char from '../data/char'
 
 export default () => html`
   <p class="italic">

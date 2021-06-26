@@ -1,11 +1,11 @@
 import { html } from 'htm/preact'
 
-import char from '$/data/char'
 import Base from '../components/Base'
 import EpisodeMeta from '../components/EpisodeMeta'
 import Link from '../components/Link'
 import MaxWidth from '../components/MaxWidth'
 import Player from '../components/Player'
+import char from '../data/char'
 
 const LatestEpisode = ({
   data: { description, duration, recorded, title },

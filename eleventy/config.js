@@ -12,11 +12,11 @@ export default (config) => {
 
   return {
     dir: {
-      input: 'content',
+      input: './src/content/',
 
       // These are relative to the input dir
-      data: '../data',
-      includes: '../views/layouts',
+      data: '../js/data/',
+      includes: '../js/layouts/',
     },
   }
 }

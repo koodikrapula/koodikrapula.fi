@@ -1,9 +1,9 @@
-import { isProdEnv, isScheduled } from '../data/utils'
+import { isProdEnv, isScheduled } from '../src/js/data/utils'
 
 export default (config) => {
   config.addCollection('episodes', (collectionApi) =>
     collectionApi
-      .getFilteredByGlob('./content/episodes/*.md')
+      .getFilteredByGlob('./src/content/episodes/*.md')
       .filter((episode) => !(isProdEnv() && isScheduled(episode)))
       // Newest first
       .reverse()

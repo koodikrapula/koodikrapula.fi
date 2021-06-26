@@ -2,7 +2,6 @@
   "scripts": {
     "build": "npm run clean && cross-env NODE_ENV=production node --require=esm ./node_modules/\\@11ty/eleventy/cmd.js",
     "clean": "rm -rf ./_site/",
-    "postinstall": "npx basetag link --hook",
     "start": "npm run clean && cross-env NODE_ENV=development node --require=esm ./node_modules/\\@11ty/eleventy/cmd.js --serve"
   },
   "dependencies": {
@@ -10,7 +9,6 @@
     "@heroicons/react": "^1.0.1",
     "@twind/content": "^0.1.0",
     "@twind/typography": "^0.0.2",
-    "basetag": "^2.0.1",
     "cross-env": "^7.0.3",
     "dedent": "^0.7.0",
     "esm": "^3.2.25",
