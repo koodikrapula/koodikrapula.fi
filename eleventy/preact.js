@@ -53,8 +53,8 @@ function disableComponentCache(config) {
       .replace(/\//g, path.sep)
 
     if (
-      !changedFilesRelativePaths.find((path) =>
-        path.startsWith(componentsFolderRelativePath)
+      !changedFilesRelativePaths.find((changedFilePath) =>
+        changedFilePath.startsWith(componentsFolderRelativePath)
       )
     ) {
       // No files were modified under the `views` folder
