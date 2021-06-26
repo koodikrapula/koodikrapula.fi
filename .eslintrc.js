@@ -16,6 +16,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2021,
   },
+  plugins: ['simple-import-sort'],
   rules: {
     // Allow function hoisting
     // because sometimes it makes things clearer
@@ -27,6 +28,8 @@ module.exports = {
     // Allow concatenating strings with `+`
     // because sometimes it's clearer than template strings
     'prefer-template': 'off',
+
+    'simple-import-sort/imports': 'error',
 
     // The following Airbnb rules need to be re-defined
     // because the Prettier rules override them
