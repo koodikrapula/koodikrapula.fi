@@ -1,7 +1,7 @@
 import { html } from 'htm/preact'
 import { tw } from 'twind'
 
-import char from '$/data/char'
+import char from '../data/char'
 import Link from './Link'
 import MaxWidth from './MaxWidth'
 

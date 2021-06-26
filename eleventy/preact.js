@@ -9,8 +9,10 @@ import { render } from 'preact-render-to-string'
 import { apply, setup } from 'twind'
 import { getStyleTag, shim, virtualSheet } from 'twind/shim/server'
 
+const componentsFolderPath = './src/js/components/'
+
 export default (config) => {
-  disableViewsCache(config)
+  disableComponentCache(config)
   patchPreact()
   const sheet = setupTwind()
 
@@ -18,11 +20,11 @@ export default (config) => {
     isValidElement(content) ? transformPreactLayout(content, sheet) : content
   )
 
-  config.addWatchTarget('./views/components/')
+  config.addWatchTarget(componentsFolderPath)
 }
 
 /**
- * Disable Node.js's `require()` cache from the files in the `views` folder.
+ * Disable Node.js's `require()` cache from the files in the `components` folder.
  *
  * Does not actually _disable_ the cache,
  * but automatically clears the cache
@@ -33,16 +35,28 @@ export default (config) => {
  * Otherwise modifying component files might not take effect.
  * Dunno where the problem actually is: in Node.js, Browsersync or 11ty.
  *
+ * Interestingly,
+ * layout files are not cached aggressively
+ * even though they are Preact components too.
+ * Possibly because the `components` folder is an "extra folder" to 11ty.
+ *
  * @param {object} config
  * 11ty's config object.
  */
-function disableViewsCache(config) {
-  const viewsFolder = path.resolve('./views/')
+function disableComponentCache(config) {
+  const componentsFolderFullPath = path.resolve(componentsFolderPath)
 
   config.on('beforeWatch', (changedFiles) => {
-    const relativePaths = changedFiles.map(path.normalize)
+    const changedFilesRelativePaths = changedFiles.map(path.normalize)
+    const componentsFolderRelativePath = componentsFolderPath
+      .slice(2) // Omit `./` from the start
+      .replace(/\//g, path.sep)
 
-    if (!relativePaths.find((file) => file.startsWith(`views${path.sep}`))) {
+    if (
+      !changedFilesRelativePaths.find((path) =>
+        path.startsWith(componentsFolderRelativePath)
+      )
+    ) {
       // No files were modified under the `views` folder
       // -> no need to clear the cache
       return
@@ -50,7 +64,8 @@ function disableViewsCache(config) {
 
     Object.keys(require.cache).forEach(
       (cachePath) =>
-        cachePath.startsWith(viewsFolder) && delete require.cache[cachePath]
+        cachePath.startsWith(componentsFolderFullPath) &&
+        delete require.cache[cachePath]
     )
   })
 }
