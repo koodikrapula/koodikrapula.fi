@@ -46,6 +46,8 @@ module.exports = {
      * because the Prettier plugin's rules override them
      */
 
+    quotes: ['error', 'single', { avoidEscape: true }],
+
     /* PLUGINS */
 
     // This is also reported by Unicorn,
@@ -55,8 +57,6 @@ module.exports = {
     'eslint-comments/no-unused-disable': 'error',
 
     'simple-import-sort/imports': 'error',
-
-    quotes: ['error', 'single', { avoidEscape: true }],
 
     /* UNICORN
      *
