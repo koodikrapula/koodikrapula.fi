@@ -10,10 +10,16 @@ Made with 11ty, Preact and Twind.
 2. `npm start`
 3. Open [localhost:8080][localhost]
 
-In VS Code,
-open the command palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>),
-choose "Extensions: Show Recommended Extensions"
-and install the recommended extensions.
+Other scripts:
+
+- `npm run eslint`
+- `npm run prettier`
+
+Also, in VS Code:
+
+1. Open the command palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>)
+2. Choose _"Extensions: Show Recommended Extensions"_
+3. Install the recommended extensions
 
 ## Building for production
 
