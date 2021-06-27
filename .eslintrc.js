@@ -165,7 +165,14 @@ module.exports = {
     // https://stackoverflow.com/q/67263317/1079869
     'unicorn/prefer-node-protocol': 'off',
 
-    'unicorn/prefer-number-properties': ['error', { checkInfinity: true }],
+    'unicorn/prefer-number-properties': [
+      'error',
+      {
+        // `Infinity` and `-Infinity` are nicer than
+        // `Number.POSITIVE_INFINITY` and `Number.NEGATIVE_INFINITY`
+        checkInfinity: false,
+      },
+    ],
 
     // Still a TC39 proposal, so not available yet
     'unicorn/prefer-object-has-own': 'off',
