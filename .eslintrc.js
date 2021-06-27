@@ -75,7 +75,10 @@ module.exports = {
 
     'unicorn/error-message': 'error',
     'unicorn/escape-case': 'error',
-    'unicorn/expiring-todo-comments': 'error',
+
+    // No need to fail builds because of expired TODO comments
+    'unicorn/expiring-todo-comments': 'warn',
+
     'unicorn/explicit-length-check': 'error',
 
     // No need for this
