@@ -190,7 +190,10 @@ module.exports = {
     // I have found that the spread operator sometimes has bad performance
     'unicorn/prefer-spread': 'off',
 
-    'unicorn/prefer-string-replace-all': 'error',
+    // Would be nice but supported only by Node.js v15+.
+    // TODO [engine:node@>=15]: Change the level to `'error'`
+    'unicorn/prefer-string-replace-all': 'off',
+
     'unicorn/prefer-string-slice': 'error',
     'unicorn/prefer-string-starts-ends-with': 'error',
     'unicorn/prefer-string-trim-start-end': 'error',

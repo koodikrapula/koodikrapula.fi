@@ -70,9 +70,7 @@ export default ({
       html`
         <meta
           name="description"
-          content=${(metaDescription || description)
-            .trim()
-            .replaceAll('\n', ' ')}
+          content=${(metaDescription || description).trim().replace(/\n/g, ' ')}
         />
       `}
 
