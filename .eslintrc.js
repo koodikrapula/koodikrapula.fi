@@ -96,7 +96,7 @@ module.exports = {
     'unicorn/no-array-for-each': 'off',
 
     // Would be nice, but not released yet
-    // 'unicorn/no-array-method-this-argument': 'error',
+    'unicorn/no-array-method-this-argument': 'off',
 
     'unicorn/no-array-push-push': 'error',
 
@@ -194,8 +194,8 @@ module.exports = {
     'unicorn/prefer-switch': 'error',
     'unicorn/prefer-ternary': 'error',
 
-    // Might be nice, but not released yet.
-    // 'unicorn/prefer-top-level-await': 'error',
+    // Might be nice, but not released yet
+    'unicorn/prefer-top-level-await': 'off',
 
     'unicorn/prefer-type-error': 'error',
 
@@ -205,8 +205,8 @@ module.exports = {
     'unicorn/require-array-join-separator': 'error',
     'unicorn/require-number-to-fixed-digits-argument': 'error',
 
-    // Would be nice, but not released yet.
-    // 'unicorn/require-post-message-target-origin': 'error',
+    // Would be nice, but not released yet
+    'unicorn/require-post-message-target-origin': 'off',
 
     // No need for this
     'unicorn/string-content': 'off',
