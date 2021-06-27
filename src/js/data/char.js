@@ -11,7 +11,7 @@
  * - Some characters are impossible to see.
  *   E.g. zero-width joiner.
  */
-module.exports = {
+export default {
   copy: '©',
   nbsp: ' ', // non-breaking space
   ndash: '–', // en dash

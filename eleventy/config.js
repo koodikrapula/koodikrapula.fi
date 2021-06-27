@@ -1,24 +1,22 @@
-const setupBrowserSync = require('./browserSync')
-const setupCollections = require('./collections')
-const setupPreact = require('./preact')
+import setupBrowserSync from './browserSync'
+import setupCollections from './collections'
+import setupPreact from './preact'
 
-module.exports = (config) => {
+export default (config) => {
   setupBrowserSync(config)
   setupCollections(config)
   setupPreact(config)
-
-  config.addPassthroughCopy('./assets')
 
   // Defaults to true in Eleventy 1.0
   config.setDataDeepMerge(true)
 
   return {
     dir: {
-      input: 'content',
+      input: './src/content/',
 
       // These are relative to the input dir
-      data: '../data',
-      includes: '../views/layouts',
+      data: '../js/data/',
+      includes: '../js/layouts/',
     },
   }
 }

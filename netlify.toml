@@ -1,13 +1,23 @@
 [build.environment]
-  NODE_ENV = "production"
+  NODE_ENV     = "production"
   NODE_VERSION = "14"
-  NPM_VERSION = "7"
+  NPM_VERSION  = "7"
 
+# Deploy previews are generated from pull requests
+[context.deploy-preview]
+  command = "npm run prettier && npm run eslint && npm run build"
+
+# Running Prettier and ESLint for production deploys would be redundant
+# because we have already run them for deploy previews.
+# Plus by not running them we might save a few seconds per deploy =D
+[context.production]
+  command = "npm run build"
+
+# Plausible proxy: https://plausible.io/docs/proxy/guides/netlify
 [[redirects]]
   from   = "/elbisualp/js/script.js"
   to     = "https://plausible.io/js/plausible.outbound-links.js"
   status = 200
-
 [[redirects]]
   from   = "/elbisualp/api/event"
   to     = "https://plausible.io/api/event"

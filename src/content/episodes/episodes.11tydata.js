@@ -1,5 +1,5 @@
-const char = require('$/data/char')
-const { isProdEnv, isScheduled } = require('$/data/utils')
+import char from '../../js/data/char'
+import { isProdBuild, isScheduled } from '../../js/data/utils'
 
 const adjacentEpisode = (data, offset) => {
   const { episodes } = data.collections
@@ -12,16 +12,14 @@ const nextEpisode = (data) => adjacentEpisode(data, -1)
 const previousEpisode = (data) => adjacentEpisode(data, +1)
 
 const permalink = (data) =>
-  isProdEnv() && isScheduled(data) ? false : `/${data.page.fileSlug}/`
+  isProdBuild() && isScheduled(data) ? false : `/${data.page.fileSlug}/`
 
-function eleventyExcludeFromCollections(data) {
-  return permalink(data) === false
-}
+const eleventyExcludeFromCollections = (data) => permalink(data) === false
 
 const title = (data) =>
   `${data.page.fileSlug} ${char.ndash} ${data.title}${char.nbsp}${data.emoji}`
 
-module.exports = {
+export default {
   layout: 'Episode',
   eleventyComputed: {
     eleventyExcludeFromCollections,

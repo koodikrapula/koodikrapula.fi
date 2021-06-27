@@ -1,1 +1,1 @@
-module.exports = require('./eleventy/config')
+export { default } from './eleventy/config'

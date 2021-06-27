@@ -1,9 +1,10 @@
-const { html } = require('htm/preact')
-const { tw } = require('twind')
+import { html } from 'htm/preact'
+import { tw } from 'twind'
 
-const char = require('$/data/char')
-const Link = require('./Link')
-const MaxWidth = require('./MaxWidth')
+import char from '../data/char'
+import { isNetlifyProdEnv } from '../data/utils'
+import Link from './Link'
+import MaxWidth from './MaxWidth'
 
 const Header = ({ currentUrl }) => {
   const linkClasses = 'no-underline -mx-1 p-1 rounded hover:bg-gray-100'
@@ -25,7 +26,7 @@ const Header = ({ currentUrl }) => {
                 <${Link}
                   class=${tw(
                     linkClasses,
-                    currentUrl.startsWith?.(href) && 'font-bold'
+                    currentUrl && currentUrl.startsWith(href) && 'font-bold'
                   )}
                   href=${href}
                 >
@@ -46,7 +47,8 @@ const Footer = () => html`
   </footer>
 `
 
-module.exports = ({
+export default ({
+  appendToBody,
   children,
   description,
   metaDescription,
@@ -75,10 +77,7 @@ module.exports = ({
       <!-- Replaced with Twind-generated styles -->
       <style id="__twind"></style>
 
-      <!-- The CONTEXT environment variable is Netlify's deploy context:
-           production, deploy-preview or branch-deploy.
-           https://docs.netlify.com/configure-builds/environment-variables/#build-metadata -->
-      ${process.env.CONTEXT === 'production' &&
+      ${isNetlifyProdEnv() &&
       html`
         <script
           data-api="/elbisualp/api/event"
@@ -86,12 +85,6 @@ module.exports = ({
           defer
           src="/elbisualp/js/script.js"
         ></script>
-
-        <!-- Required for tracking 404 pages. https://plausible.io/docs/404-error-pages-tracking -->
-        <!-- prettier-ignore -->
-        <script>
-          window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
-        </script>
       `}
     </head>
 
@@ -101,6 +94,8 @@ module.exports = ({
         ${children}
         <${Footer} />
       </div>
+
+      ${appendToBody}
     </body>
   </html>
 `

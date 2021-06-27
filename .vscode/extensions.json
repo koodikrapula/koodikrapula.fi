@@ -1,3 +1,7 @@
 {
-  "recommendations": ["bierner.lit-html", "esbenp.prettier-vscode"]
+  "recommendations": [
+    "bierner.lit-html",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ]
 }

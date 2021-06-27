@@ -1,11 +1,11 @@
-const { html } = require('htm/preact')
+import { html } from 'htm/preact'
 
-const char = require('$/data/char')
-const Base = require('../components/Base')
-const EpisodeMeta = require('../components/EpisodeMeta')
-const Link = require('../components/Link')
-const MaxWidth = require('../components/MaxWidth')
-const Player = require('../components/Player')
+import Base from '../components/Base'
+import EpisodeMeta from '../components/EpisodeMeta'
+import Link from '../components/Link'
+import MaxWidth from '../components/MaxWidth'
+import Player from '../components/Player'
+import char from '../data/char'
 
 const LatestEpisode = ({
   data: { description, duration, recorded, title },
@@ -49,7 +49,7 @@ const Episode = ({
   </article>
 `
 
-module.exports = (data) => {
+export default (data) => {
   const {
     collections: { episodes },
     title,
