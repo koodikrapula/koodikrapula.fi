@@ -1,16 +1,20 @@
 ---
 layout: Info
 title: 'Info'
-description: |
-  Keskustelua krapulaisesta koodista
-  ja kaikesta siihen liittyvästä. 🤑🍻
-  Viikoittain ilmestyvä podcast.
 metaDescription: |
   Keskustelua krapulaisesta koodista
   ja ränttiä Reactista.
-  Viikoittain ilmestyvä podcast.
+  Noin viikoittain ilmestyvä podcast.
   Housteina Kinnusen weljekset
   Hannes ja Matias.
+
+eleventyComputed:
+  description: |
+    Keskustelua krapulaisesta koodista
+    ja kaikesta siihen liittyvästä. 🤑🍻
+    Noin viikoittain ilmestyvä podcast {{char.ndash}}
+    uusi jakso maanantaisin,
+    mutta ei välttämättä ihan joka maanantai.
 ---
 
 Jos ei keksitä muuta puhuttavaa,
