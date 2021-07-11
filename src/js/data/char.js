@@ -16,5 +16,6 @@ export default {
   nbsp: ' ', // non-breaking space
   ndash: '–', // en dash
   rarr: '→',
+  reg: '®',
   trade: '™',
 }
