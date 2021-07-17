@@ -17,5 +17,6 @@ export default {
   ndash: '–', // en dash
   rarr: '→',
   reg: '®',
+  times: '×',
   trade: '™',
 }
