@@ -44,10 +44,12 @@ const Header = ({ currentUrl }) => {
 const Footer = () => html`
   <footer class="mt-auto py-8 text-gray-600">
     <${MaxWidth} class="border-t-2 pt-8 flex justify-between">
-      <div>${char.copy} Koodikrapula 2021</div>
-      <div>
-        <a href="https://github.com/koodikrapula/koodikrapula.fi">Lähdekoodi</a>
-      </div>
+      <p>${char.copy} Koodikrapula 2021</p>
+      <p>
+        <${Link} href="https://github.com/koodikrapula/koodikrapula.fi">
+          Lähdekoodi
+        <//>
+      </p>
     <//>
   </footer>
 `
