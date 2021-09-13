@@ -7,14 +7,12 @@ import Link from './Link'
 import MaxWidth from './MaxWidth'
 
 const Header = ({ currentUrl }) => {
-  const linkClasses = 'no-underline -mx-1 p-1 rounded hover:bg-gray-100'
+  const linkClasses =
+    'no-underline -mx-1 p-1 rounded hover:bg-gray-100 whitespace-nowrap'
   const links = [
     { href: '/info/', title: 'Info' },
-    {
-      href: 'https://twitter.com/koodikrapula',
-      title: 'Twitter',
-      external: true,
-    },
+    { href: 'https://twitter.com/koodikrapula', title: 'Twitter' },
+    { href: 'https://forms.gle/uyh3v8bbQUwnizEw5', title: 'Kysy kysymys' },
   ]
 
   return html`
@@ -28,7 +26,7 @@ const Header = ({ currentUrl }) => {
         <//>
         <ul class="mb-6 space-x-6 sm:mt-6">
           ${links.map(
-            ({ href, title, external }) => html`
+            ({ href, title }) => html`
               <li class="inline">
                 <${Link}
                   class=${tw(
@@ -36,7 +34,6 @@ const Header = ({ currentUrl }) => {
                     currentUrl && currentUrl.startsWith(href) && 'font-bold'
                   )}
                   href=${href}
-                  target=${external ? '_blank' : '_self'}
                 >
                   ${title}
                 <//>
