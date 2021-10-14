@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from '@heroicons/react/solid'
 import { html } from 'htm/preact'
 import { tw } from 'twind'
 
@@ -25,6 +26,7 @@ const Header = ({ currentUrl }) => {
             ({ href, title }) => html`
               <li class="inline">
                 <${Link}
+                  aria-current=${currentUrl === href ? 'page' : undefined}
                   class=${tw(
                     linkClasses,
                     currentUrl && currentUrl.startsWith(href) && 'font-bold'
@@ -43,18 +45,61 @@ const Header = ({ currentUrl }) => {
 }
 
 // TODO: Change to non-arrow function and move after the Base component
-const Footer = () => html`
-  <footer class="mt-auto py-8 text-gray-600" lang="fi">
-    <${MaxWidth} class="border-t-2 pt-8 flex justify-between">
-      <p>${char.copy} Koodikrapula 2021</p>
-      <p>
-        <${Link} href="https://github.com/koodikrapula/koodikrapula.fi">
-          Lähdekoodi
-        <//>
-      </p>
-    <//>
-  </footer>
-`
+const Footer = ({ currentUrl }) => {
+  const links = [
+    {
+      href: '/en/',
+      emoji: '🇺🇸',
+      text: 'In English',
+      external: false,
+      rest: { lang: 'en' },
+    },
+    {
+      href: 'https://github.com/koodikrapula/koodikrapula.fi',
+      emoji: '🍝',
+      text: 'Lähdekoodi',
+      external: true,
+    },
+  ]
+
+  return html`
+    <footer class="mt-auto py-8 text-gray-600" lang="fi">
+      <${MaxWidth}
+        class="border-t-2 pt-8 flex flex-col space-y-4 sm:(flex-row justify-between space-y-0)"
+      >
+        <p>${char.copy} Koodikrapula 2021</p>
+        <nav aria-label="Footer navigation">
+          <ul class="space-x-6">
+            ${links.map(
+              ({ href, emoji, text, external, rest = {} }) => html`
+                <li class="inline">
+                  <${Link}
+                    aria-current=${currentUrl === href ? 'page' : undefined}
+                    href=${href}
+                    ...${rest}
+                  >
+                    <span aria-hidden="true" class="inline-block mr-1">
+                      ${emoji}
+                    </span>
+                    ${text}
+                    ${external &&
+                    html`
+                      <${ExternalLinkIcon}
+                        aria-hidden="true"
+                        class="inline mb-0.5 ml-1 opacity-70"
+                        width="1rem"
+                      />
+                    `}
+                  <//>
+                </li>
+              `
+            )}
+          </ul>
+        </nav>
+      <//>
+    </footer>
+  `
+}
 
 export default ({
   appendToBody,
@@ -102,7 +147,7 @@ export default ({
       <div class="flex flex-col min-h-full px-6">
         <${Header} currentUrl=${page.url} />
         ${children}
-        <${Footer} />
+        <${Footer} currentUrl=${page.url} />
       </div>
 
       ${appendToBody}
