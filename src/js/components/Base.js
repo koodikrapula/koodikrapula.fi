@@ -6,12 +6,13 @@ import { isNetlifyProdEnv } from '../data/utils'
 import Link from './Link'
 import MaxWidth from './MaxWidth'
 
+// TODO: Change to non-arrow function and move after the Base component
 const Header = ({ currentUrl }) => {
   const linkClasses = 'no-underline -mx-1 p-1 rounded hover:bg-gray-100'
   const links = [{ href: '/info/', title: 'Info' }]
 
   return html`
-    <header>
+    <header lang="fi">
       <${MaxWidth} as="nav" class="sm:(flex justify-between)">
         <${Link}
           class="${linkClasses} inline-block my-4 font(bold mono) text(2xl gray-800)"
@@ -41,8 +42,9 @@ const Header = ({ currentUrl }) => {
   `
 }
 
+// TODO: Change to non-arrow function and move after the Base component
 const Footer = () => html`
-  <footer class="mt-auto py-8 text-gray-600">
+  <footer class="mt-auto py-8 text-gray-600" lang="fi">
     <${MaxWidth} class="border-t-2 pt-8 flex justify-between">
       <p>${char.copy} Koodikrapula 2021</p>
       <p>
@@ -58,12 +60,13 @@ export default ({
   appendToBody,
   children,
   description,
+  lang,
   metaDescription,
   metaTitle,
   page,
   title,
 }) => html`
-  <html class="h-full" lang="fi">
+  <html class="h-full" lang=${lang || 'fi'}>
     <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
