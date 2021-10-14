@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from '@heroicons/react/solid'
 import { html } from 'htm/preact'
 import { tw } from 'twind'
 
@@ -11,9 +12,22 @@ const Header = ({ currentUrl }) => {
     'no-underline -mx-1 p-1 rounded hover:bg-gray-100 whitespace-nowrap'
   const links = [
     { href: '/info/', title: 'Info' },
-    { href: 'https://twitter.com/koodikrapula', title: 'Twitter' },
-    { href: 'https://forms.gle/uyh3v8bbQUwnizEw5', title: 'Kysy kysymys' },
+    {
+      href: 'https://twitter.com/koodikrapula',
+      title: 'Twitter',
+      external: true,
+    },
+    {
+      href: 'https://forms.gle/uyh3v8bbQUwnizEw5',
+      title: 'Kysy kysymys',
+      external: true,
+    },
   ]
+
+  const iconProps = {
+    'aria-hidden': true,
+    class: 'align-text-bottom inline h-4 w-4 ml-0.5 mb-0.5 text-gray-400',
+  }
 
   return html`
     <header>
@@ -26,7 +40,7 @@ const Header = ({ currentUrl }) => {
         <//>
         <ul class="mb-6 space-x-6 sm:mt-6">
           ${links.map(
-            ({ href, title }) => html`
+            ({ href, title, external = false }) => html`
               <li class="inline">
                 <${Link}
                   class=${tw(
@@ -36,6 +50,7 @@ const Header = ({ currentUrl }) => {
                   href=${href}
                 >
                   ${title}
+                  ${external && html`<${ExternalLinkIcon} ...${iconProps} />`}
                 <//>
               </li>
             `
