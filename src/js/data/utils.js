@@ -1,3 +1,6 @@
+// TODO: Move and rename this file to e.g. `/src/js/utils/index.js`
+// because this is not needed in content (Markdown) files
+
 /**
  * Checks whether the current Netlify deploy context is `production`.
  * Returns `false` in non-Netlify environments, e.g. localhost.

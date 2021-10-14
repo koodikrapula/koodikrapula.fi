@@ -1,5 +1,7 @@
 import { html } from 'htm/preact'
 
-export default ({ content }) => html`
-  <div dangerouslySetInnerHTML=${{ __html: content }} />
+// TODO: Rename this component e.g. to "Html"
+// because it takes HTML, not Markdown
+export default ({ content, inline = false }) => html`
+  <${inline ? 'span' : 'div'} dangerouslySetInnerHTML=${{ __html: content }} />
 `
