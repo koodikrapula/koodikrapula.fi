@@ -66,7 +66,7 @@ const Footer = ({ currentUrl }) => {
     {
       href: '#top',
       emoji: '☝',
-      text: 'Scroll up',
+      text: 'Ylös',
       external: false,
     },
     {
