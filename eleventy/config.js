@@ -1,4 +1,4 @@
-import md from '../src/js/data/md'
+import md from '../src/js/utils/markdownIt'
 import setupBrowserSync from './browserSync'
 import setupCollections from './collections'
 import setupPreact from './preact'

@@ -3,7 +3,7 @@ import { html } from 'htm/preact'
 import Base from '../components/Base'
 import Markdown from '../components/Markdown'
 import MaxWidth from '../components/MaxWidth'
-import md from '../data/md'
+import md from '../utils/markdownIt'
 
 export default (data) => {
   const { content, description, title } = data
