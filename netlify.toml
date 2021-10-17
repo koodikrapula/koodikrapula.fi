@@ -22,15 +22,17 @@
   from   = "/elbisualp/api/event"
   to     = "https://plausible.io/api/event"
   status = 202
+
+[[redirects]]
+  from   = "https://krapu.la/kysy"
+  to     = "https://forms.gle/uyh3v8bbQUwnizEw5"
+  status = 302
+
 [[redirects]]
   from   = "https://koodikrapula.netlify.app/*"
   to     = "https://koodikrapula.fi/:splat"
   status = 301
   force  = true
-[[redirects]]
-  from   = "https://krapu.la/kysy"
-  to     = "https://forms.gle/uyh3v8bbQUwnizEw5"
-  status = 302
 [[redirects]]
   from   = "https://krapu.la/*"
   to     = "https://koodikrapula.fi/:splat"
