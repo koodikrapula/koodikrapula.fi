@@ -7,8 +7,61 @@ import { isNetlifyProdEnv } from '../data/utils'
 import Link from './Link'
 import MaxWidth from './MaxWidth'
 
-// TODO: Change to non-arrow function and move after the Base component
-const Header = ({ currentUrl }) => {
+export default ({
+  appendToBody,
+  children,
+  description,
+  lang,
+  metaDescription,
+  metaTitle,
+  page,
+  title,
+}) => html`
+  <html class="h-full" lang=${lang || 'fi'}>
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>
+        ${(metaTitle || title).trim()}
+        ${page.url !== '/' && ` ${char.ndash} Koodikrapula`}
+      </title>
+      <link rel="canonical" href="https://koodikrapula.fi${page.url}" />
+
+      ${(metaDescription || description) &&
+      html`
+        <meta
+          name="description"
+          content=${(metaDescription || description).trim().replace(/\n/g, ' ')}
+        />
+      `}
+
+      <!-- Replaced with Twind-generated styles -->
+      <style id="__twind"></style>
+
+      ${isNetlifyProdEnv() &&
+      html`
+        <script
+          data-api="/elbisualp/api/event"
+          data-domain="koodikrapula.fi"
+          defer
+          src="/elbisualp/js/script.js"
+        ></script>
+      `}
+    </head>
+
+    <body class="h-full overflow-y-scroll">
+      <div class="flex flex-col min-h-full px-6">
+        <${Header} currentUrl=${page.url} />
+        ${children}
+        <${Footer} currentUrl=${page.url} />
+      </div>
+
+      ${appendToBody}
+    </body>
+  </html>
+`
+
+function Header({ currentUrl }) {
   const linkClasses =
     'no-underline -mx-1 p-1 rounded hover:bg-gray-100 whitespace-nowrap'
   const links = [
@@ -63,8 +116,7 @@ const Header = ({ currentUrl }) => {
   `
 }
 
-// TODO: Change to non-arrow function and move after the Base component
-const Footer = ({ currentUrl }) => {
+function Footer({ currentUrl }) {
   const links = [
     {
       href: '/en/',
@@ -119,57 +171,3 @@ const Footer = ({ currentUrl }) => {
     </footer>
   `
 }
-
-export default ({
-  appendToBody,
-  children,
-  description,
-  lang,
-  metaDescription,
-  metaTitle,
-  page,
-  title,
-}) => html`
-  <html class="h-full" lang=${lang || 'fi'}>
-    <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>
-        ${(metaTitle || title).trim()}
-        ${page.url !== '/' && ` ${char.ndash} Koodikrapula`}
-      </title>
-      <link rel="canonical" href="https://koodikrapula.fi${page.url}" />
-
-      ${(metaDescription || description) &&
-      html`
-        <meta
-          name="description"
-          content=${(metaDescription || description).trim().replace(/\n/g, ' ')}
-        />
-      `}
-
-      <!-- Replaced with Twind-generated styles -->
-      <style id="__twind"></style>
-
-      ${isNetlifyProdEnv() &&
-      html`
-        <script
-          data-api="/elbisualp/api/event"
-          data-domain="koodikrapula.fi"
-          defer
-          src="/elbisualp/js/script.js"
-        ></script>
-      `}
-    </head>
-
-    <body class="h-full overflow-y-scroll">
-      <div class="flex flex-col min-h-full px-6">
-        <${Header} currentUrl=${page.url} />
-        ${children}
-        <${Footer} currentUrl=${page.url} />
-      </div>
-
-      ${appendToBody}
-    </body>
-  </html>
-`
