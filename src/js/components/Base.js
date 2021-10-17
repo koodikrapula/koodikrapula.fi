@@ -1,4 +1,3 @@
-import { ExternalLinkIcon } from '@heroicons/react/solid'
 import { html } from 'htm/preact'
 import { tw } from 'twind'
 
@@ -65,7 +64,10 @@ function Header({ currentUrl }) {
   const linkClasses =
     'no-underline -mx-1 p-1 rounded hover:bg-gray-100 whitespace-nowrap'
   const links = [
-    { href: '/info/', title: 'Info' },
+    {
+      href: '/info/',
+      title: 'Info',
+    },
     {
       href: 'https://twitter.com/koodikrapula',
       title: 'Twitter',
@@ -77,11 +79,6 @@ function Header({ currentUrl }) {
       external: true,
     },
   ]
-
-  const iconProps = {
-    'aria-hidden': true,
-    class: 'align-text-bottom inline h-4 w-4 ml-0.5 mb-0.5 text-gray-400',
-  }
 
   return html`
     <header lang="fi">
@@ -102,10 +99,10 @@ function Header({ currentUrl }) {
                     linkClasses,
                     currentUrl && currentUrl.startsWith(href) && 'font-bold'
                   )}
+                  external=${external}
                   href=${href}
                 >
                   ${title}
-                  ${external && html`<${ExternalLinkIcon} ...${iconProps} />`}
                 <//>
               </li>
             `
@@ -146,6 +143,7 @@ function Footer({ currentUrl }) {
                 <li class="inline">
                   <${Link}
                     aria-current=${currentUrl === href ? 'page' : undefined}
+                    external=${external}
                     href=${href}
                     ...${rest}
                   >
@@ -153,14 +151,6 @@ function Footer({ currentUrl }) {
                       ${emoji}
                     </span>
                     ${text}
-                    ${external &&
-                    html`
-                      <${ExternalLinkIcon}
-                        aria-hidden="true"
-                        class="inline mb-0.5 ml-1 opacity-70"
-                        width="1rem"
-                      />
-                    `}
                   <//>
                 </li>
               `
