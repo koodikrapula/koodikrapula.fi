@@ -3,6 +3,7 @@
     "build": "npm run clean && cross-env NODE_ENV=production node --require=esm ./node_modules/\\@11ty/eleventy/cmd.js",
     "clean": "rm -rf ./_site/",
     "eslint": "eslint ./**/*.js",
+    "eslint-fix": "eslint ./**/*.js --fix",
     "prettier": "prettier --check ./**/*.{js,md}",
     "start": "npm run clean && cross-env NODE_ENV=development node --require=esm ./node_modules/\\@11ty/eleventy/cmd.js --serve"
   },
