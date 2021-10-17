@@ -1,4 +1,4 @@
-import { isProdBuild, isScheduled } from '../src/js/data/utils'
+import { isProdBuild, isScheduled } from '../src/js/utils'
 
 export default (config) => {
   config.addCollection('episodes', (collectionApi) =>

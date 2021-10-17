@@ -2,7 +2,7 @@ import { html } from 'htm/preact'
 import { tw } from 'twind'
 
 import char from '../data/char'
-import { isNetlifyProdEnv } from '../data/utils'
+import { isNetlifyProdEnv } from '../utils'
 import Link from './Link'
 import MaxWidth from './MaxWidth'
 
