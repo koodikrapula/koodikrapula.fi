@@ -27,6 +27,10 @@
   from   = "https://krapu.la/kysy"
   to     = "https://forms.gle/uyh3v8bbQUwnizEw5"
   status = 302
+[[redirects]]
+  from   = "https://koodikrapula.fi/kysy"
+  to     = "https://forms.gle/uyh3v8bbQUwnizEw5"
+  status = 302
 
 [[redirects]]
   from   = "https://koodikrapula.netlify.app/*"
