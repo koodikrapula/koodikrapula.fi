@@ -117,7 +117,7 @@ function Footer({ currentUrl }) {
   const links = [
     {
       href: '/en/',
-      emoji: '🇺🇸',
+      emoji: '🌎',
       text: 'In English',
       external: false,
       rest: { lang: 'en' },
