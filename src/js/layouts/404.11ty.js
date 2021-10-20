@@ -3,7 +3,7 @@ import { html } from 'htm/preact'
 import Base from '../components/Base'
 import Markdown from '../components/Markdown'
 import MaxWidth from '../components/MaxWidth'
-import { isNetlifyProdEnv } from '../data/utils'
+import { isNetlifyProdEnv } from '../utils'
 
 const TrackingScript = () =>
   isNetlifyProdEnv() &&

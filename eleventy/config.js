@@ -1,3 +1,4 @@
+import md from '../src/js/utils/markdownIt'
 import setupBrowserSync from './browserSync'
 import setupCollections from './collections'
 import setupPreact from './preact'
@@ -9,6 +10,8 @@ export default (config) => {
 
   // Defaults to true in Eleventy 1.0
   config.setDataDeepMerge(true)
+
+  config.setLibrary('md', md)
 
   return {
     dir: {
