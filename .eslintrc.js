@@ -25,7 +25,7 @@ module.exports = {
     ecmaVersion: 2021,
     sourceType: 'module',
   },
-  plugins: ['simple-import-sort', 'sonarjs', 'unicorn'],
+  plugins: ['sonarjs', 'unicorn'],
   rules: {
     /* BUILT-IN RULES */
 
@@ -55,8 +55,6 @@ module.exports = {
     'eslint-comments/no-unlimited-disable': 'off',
 
     'eslint-comments/no-unused-disable': 'error',
-
-    'simple-import-sort/imports': 'error',
 
     /* UNICORN
      *
