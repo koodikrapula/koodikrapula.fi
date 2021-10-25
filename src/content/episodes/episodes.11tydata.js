@@ -1,5 +1,5 @@
 import char from '../../js/data/char'
-import { isProdBuild, isScheduled } from '../../js/data/utils'
+import { isProdBuild, isScheduled } from '../../js/utils'
 
 const adjacentEpisode = (data, offset) => {
   const { episodes } = data.collections
