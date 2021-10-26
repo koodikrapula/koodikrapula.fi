@@ -21,6 +21,10 @@ Also, in VS Code:
 2. Choose _"Extensions: Show Recommended Extensions"_
 3. Install the recommended extensions
 
+### Other tips
+
+- [Run 'ESLint: Fix all auto-fixable Problems' on save](https://www.digitalocean.com/community/tutorials/workflow-auto-eslinting#step-4-%E2%80%93-adding-code-actions-on-save)
+
 ## Building for production
 
 1. `npm install`
