@@ -5,12 +5,7 @@ import {
 } from '@heroicons/react/outline'
 import { html } from 'htm/preact'
 
-const dateFormat = {
-  human: (date) => date.toLocaleString('fi', { dateStyle: 'short' }),
-
-  // TODO [2021-10-01]: Daylight saving time?
-  robot: (date) => `${date.toISOString().split('T')[0]}T06:00:00+03:00`,
-}
+import dateFormat from '../utils/dateFormat'
 
 /**
  * Parses a colon-separated duration (string)

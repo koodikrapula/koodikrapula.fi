@@ -1,5 +1,7 @@
 {
   "scripts": {
+    "_anchor": "node --require=esm scripts/anchor.js",
+    "anchor": "npm run --silent _anchor > anchor.html",
     "build": "npm run clean && cross-env NODE_ENV=production node --require=esm ./node_modules/\\@11ty/eleventy/cmd.js",
     "clean": "rm -rf ./_site/",
     "eslint": "eslint ./**/*.js",
@@ -23,6 +25,7 @@
     "eslint-plugin-sonarjs": "^0.8.0-125",
     "eslint-plugin-unicorn": "^33.0.1",
     "esm": "^3.2.25",
+    "gray-matter": "^4.0.3",
     "htm": "^3.0.4",
     "markdown-it": "^10.0.0",
     "preact": "^10.5.13",

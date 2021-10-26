@@ -20,6 +20,13 @@ module.exports = {
         'class-methods-use-this': 'off',
       },
     },
+    {
+      files: 'scripts/*.js',
+      rules: {
+        'no-console': 'off',
+        'unicorn/no-process-exit': 'off',
+      },
+    },
   ],
   parserOptions: {
     ecmaVersion: 2021,
