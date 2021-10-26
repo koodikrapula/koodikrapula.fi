@@ -56,7 +56,7 @@ module.exports = {
 
     'eslint-comments/no-unused-disable': 'error',
 
-    'simple-import-sort/imports': 'error',
+    'simple-import-sort/imports': 'warn',
 
     /* UNICORN
      *
