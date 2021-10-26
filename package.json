@@ -32,7 +32,8 @@
     "twind": "^0.16.16"
   },
   "devDependencies": {
-    "@types/eslint": "^7.2.13"
+    "@types/eslint": "^7.2.13",
+    "eslint-plugin-simple-import-sort": "^7.0.0"
   },
   "engines": {
     "node": ">=14.0.0",
