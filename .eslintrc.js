@@ -40,6 +40,8 @@ module.exports = {
     // because sometimes it's clearer than template strings
     'prefer-template': 'off',
 
+    'no-unused-vars': 'warn',
+
     /* PRETTIER
      *
      * These Airbnb rules need to be re-defined
