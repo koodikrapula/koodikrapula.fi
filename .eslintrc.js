@@ -5,11 +5,10 @@ module.exports = {
     node: true,
   },
   extends: [
-    'airbnb-base',
+    'eslint:recommended',
+    'plugin:import/recommended',
     'plugin:eslint-comments/recommended',
-
-    // This should probably come last
-    'prettier',
+    'prettier', // This should probably come last
   ],
   ignorePatterns: ['!.eleventy.js'],
   overrides: [
