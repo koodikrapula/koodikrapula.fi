@@ -7,7 +7,6 @@ module.exports = {
   extends: [
     'airbnb-base',
     'plugin:eslint-comments/recommended',
-    'plugin:sonarjs/recommended',
 
     // This should probably come last
     'prettier',
@@ -32,7 +31,7 @@ module.exports = {
     ecmaVersion: 2021,
     sourceType: 'module',
   },
-  plugins: ['simple-import-sort', 'sonarjs', 'unicorn'],
+  plugins: ['simple-import-sort', 'unicorn'],
   rules: {
     /* BUILT-IN RULES */
 
