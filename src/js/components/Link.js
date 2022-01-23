@@ -1,6 +1,7 @@
 import { ExternalLinkIcon } from '@heroicons/react/solid'
 import { html } from 'htm/preact'
 import { apply, tw } from 'twind'
+import { linkClasses } from '../utils/const'
 
 export default ({
   children,
@@ -10,7 +11,7 @@ export default ({
   ...rest
 }) => html`
   <a
-    class=${tw(classes, apply('underline text-red(hover:600 active:700)'))}
+    class=${tw(classes, apply(linkClasses))}
     href=${href}
     style="text-decoration-thickness: 1px"
     ...${rest}

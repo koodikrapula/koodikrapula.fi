@@ -47,6 +47,8 @@ module.exports = {
     // because sometimes it's clearer than template strings
     'prefer-template': 'off',
 
+    'no-unused-vars': 'warn',
+
     /* PRETTIER
      *
      * These Airbnb rules need to be re-defined
@@ -63,7 +65,7 @@ module.exports = {
 
     'eslint-comments/no-unused-disable': 'error',
 
-    'simple-import-sort/imports': 'error',
+    'simple-import-sort/imports': 'warn',
 
     /* UNICORN
      *

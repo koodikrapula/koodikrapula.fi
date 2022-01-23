@@ -21,13 +21,13 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-sonarjs": "^0.8.0-125",
     "eslint-plugin-unicorn": "^33.0.1",
     "esm": "^3.2.25",
     "gray-matter": "^4.0.3",
     "htm": "^3.0.4",
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^12.2.0",
+    "markdown-it-link-attributes": "^3.0.0",
     "preact": "^10.5.13",
     "preact-render-to-string": "^5.1.19",
     "prettier": "2.3.2",
@@ -35,7 +35,8 @@
     "twind": "^0.16.16"
   },
   "devDependencies": {
-    "@types/eslint": "^7.2.13"
+    "@types/eslint": "^7.2.13",
+    "eslint-plugin-simple-import-sort": "^7.0.0"
   },
   "engines": {
     "node": ">=14.0.0",
