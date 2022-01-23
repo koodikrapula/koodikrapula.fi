@@ -5,12 +5,10 @@ module.exports = {
     node: true,
   },
   extends: [
-    'airbnb-base',
+    'eslint:recommended',
+    'plugin:import/recommended',
     'plugin:eslint-comments/recommended',
-    'plugin:sonarjs/recommended',
-
-    // This should probably come last
-    'prettier',
+    'prettier', // This should probably come last
   ],
   ignorePatterns: ['!.eleventy.js'],
   overrides: [
@@ -23,7 +21,6 @@ module.exports = {
     {
       files: 'scripts/*.js',
       rules: {
-        'no-console': 'off',
         'unicorn/no-process-exit': 'off',
       },
     },
@@ -32,25 +29,44 @@ module.exports = {
     ecmaVersion: 2021,
     sourceType: 'module',
   },
-  plugins: ['simple-import-sort', 'sonarjs', 'unicorn'],
+  plugins: ['simple-import-sort', 'unicorn'],
   rules: {
-    /* BUILT-IN RULES */
+    /* BUILT-IN RULES: "Possible Problems"
+     * https://eslint.org/docs/rules/#possible-problems
+     */
 
-    // Allow function hoisting
-    // because sometimes it makes things clearer
+    'array-callback-return': 'warn',
+    'no-template-curly-in-string': 'warn',
+
+    // Functions are hoisted, classes and variables are not
     'no-use-before-define': [
       'error',
       { functions: false, classes: true, variables: true },
     ],
 
-    // Allow concatenating strings with `+`
-    // because sometimes it's clearer than template strings
-    'prefer-template': 'off',
+    /* BUILT-IN RULES: "Suggestions"
+     * https://eslint.org/docs/rules/#suggestions
+     */
 
-    /* PRETTIER
-     *
-     * These Airbnb rules need to be re-defined
-     * because the Prettier plugin's rules override them
+    curly: ['error', 'multi-line', 'consistent'],
+    'consistent-return': 'warn',
+    'dot-notation': 'error',
+
+    // `== null` checks against `null` and `undefined`.
+    // In other cases `===` should be used.
+    eqeqeq: ['error', 'always', { null: 'ignore' }],
+
+    'no-array-constructor': 'error',
+    'no-else-return': 'error',
+    'no-implied-eval': 'error',
+    'no-lonely-if': 'error',
+    'no-sequences': ['error', { allowInParentheses: false }],
+    'no-shadow': 'warn',
+    'no-throw-literal': 'error',
+    'no-unneeded-ternary': 'warn',
+
+    /* BUILT-IN RULES: "Layout & Formatting"
+     * https://eslint.org/docs/rules/#layout-formatting
      */
 
     quotes: ['error', 'single', { avoidEscape: true }],
@@ -123,11 +139,7 @@ module.exports = {
     'unicorn/no-keyword-prefix': 'off',
 
     'unicorn/no-lonely-if': 'error',
-
-    // These two are related
-    'no-nested-ternary': 'off',
     'unicorn/no-nested-ternary': 'error',
-
     'unicorn/no-new-array': 'error',
     'unicorn/no-new-buffer': 'error',
 

@@ -83,7 +83,7 @@ function disableComponentCache(config) {
  * The v10 docs are missing similar instructions for some reason.
  */
 function patchPreact() {
-  // eslint-disable-next-line no-underscore-dangle, unicorn/prefer-module
+  // eslint-disable-next-line unicorn/prefer-module
   module.constructor._cache[require.resolve('react')].exports = PreactCompat
 }
 
