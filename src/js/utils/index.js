@@ -18,6 +18,13 @@ export const isNetlifyProdEnv = () => process.env.CONTEXT === 'production'
 export const isProdBuild = () => process.env.NODE_ENV === 'production'
 
 /**
+ * Checks whether the current build is a deploy preview build.
+ *
+ * @returns {boolean}
+ */
+export const isPreviewBuild = () => process.env.NODE_ENV === 'deploy-preview'
+
+/**
  * Checks whether the given content's published date is in the future.
  *
  * @param {{date: Date}} data
