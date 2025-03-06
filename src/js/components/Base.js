@@ -1,12 +1,10 @@
 import { html } from 'htm/preact'
 
 import char from '../data/char'
-import { isNetlifyProdEnv } from '../utils'
 import Footer from './Footer'
 import Header from './Header'
 
 export default ({
-  appendToBody,
   children,
   description,
   lang,
@@ -35,16 +33,6 @@ export default ({
 
       <!-- Replaced with Twind-generated styles -->
       <style id="__twind"></style>
-
-      ${isNetlifyProdEnv() &&
-      html`
-        <script
-          data-api="/elbisualp/api/event"
-          data-domain="koodikrapula.fi"
-          defer
-          src="/elbisualp/js/script.js"
-        ></script>
-      `}
     </head>
 
     <body class="h-full overflow-y-scroll" id="top">
@@ -53,8 +41,6 @@ export default ({
         ${children}
         <${Footer} currentUrl=${page.url} />
       </div>
-
-      ${appendToBody}
     </body>
   </html>
 `

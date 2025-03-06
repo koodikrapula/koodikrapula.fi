@@ -13,16 +13,6 @@
 [context.production]
   command = "npm run build"
 
-# Plausible proxy: https://plausible.io/docs/proxy/guides/netlify
-[[redirects]]
-  from   = "/elbisualp/js/script.js"
-  to     = "https://plausible.io/js/plausible.outbound-links.js"
-  status = 200
-[[redirects]]
-  from   = "/elbisualp/api/event"
-  to     = "https://plausible.io/api/event"
-  status = 202
-
 [[redirects]]
   from   = "https://krapu.la/kysy"
   to     = "https://forms.gle/uyh3v8bbQUwnizEw5"
